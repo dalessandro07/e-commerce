@@ -632,7 +632,13 @@ body::-webkit-scrollbar-track {
 }
 
 .carousel-contenedor {
+    display: flex;
+    justify-content: space-around;
     padding: 0 34px !important;
+}
+
+.carousel-slides {
+    width: 50%;
 }
 
 .carousel .carousel-item {
