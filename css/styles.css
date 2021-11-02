@@ -1090,6 +1090,11 @@ body::-webkit-scrollbar-track {
     margin-left: .5rem;
 }
 
+.boton-agregar-al-carro {
+    border: 1px solid #225239 !important;
+    border-radius: 5px;
+}
+
 
 /* ESTILOS SERVICIOS */
 
@@ -1751,6 +1756,9 @@ body .cabecera .nav__lista {
     .asesoria__formulario #formulario {
         width: 80%;
     }
+    .carousel-slides {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1789,9 +1797,6 @@ body .cabecera .nav__lista {
     }
     #noticias {
         padding: 0 3rem;
-    }
-    #noticias .seccion__imagen .seccion__imagen--style {
-        width: 70vw;
     }
     .contacto .formulario__info .formulario__texto .texto__contacto .correo .correo__enlace {
         font-size: 1.3rem;
@@ -2138,6 +2143,14 @@ body .cabecera .nav__lista {
 
 /* ESTILOS - PRODUCTOS*/
 
+.titulo-productos-vacio {
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: underline;
+    color: #00bb2d;
+    margin: 3rem 0;
+}
+
 .icono-header {
     font-size: 2.2rem;
     color: #225239;
@@ -2291,6 +2304,20 @@ body .cabecera .nav__lista {
 
 .producto-en-carrito {
     margin: 1rem 0;
+}
+
+.titulo-cantidad {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.cantidad-producto {
+    font-size: 2rem;
+    width: 40%;
+    padding: 0 5px;
+    background-color: #e7e7e7;
+    box-shadow: none;
+    border: none;
 }
 
 .total__carrito {
