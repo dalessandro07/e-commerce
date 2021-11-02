@@ -41,7 +41,6 @@ botonDarkMode.addEventListener("click", activarDark);
 function activarDark() {
     botonDarkMode.classList.toggle("fa-sun");
 
-    carrito.classList.toggle("carrito-oscuro");
     seccionPrincipal[0].classList.toggle("seccion-oscuro");
     navPrincipal[0].classList.toggle("nav-oscuro");
     logo[0].classList.toggle("logo-oscuro");
@@ -58,9 +57,6 @@ function activarDark() {
     }
     for (const texto of textos) {
         texto.classList.toggle("texto-oscuro");
-    }
-    for (const precio of precioCarrito) {
-        precio.classList.toggle("titulo-carrito-oscuro");
     }
     for (const tituloS of tituloSecundario) {
         tituloS.classList.toggle("texto-oscuro");
