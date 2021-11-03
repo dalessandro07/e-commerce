@@ -73,7 +73,7 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-size: 57.5%;
+    font-size: 60.5%;
 }
 
 html {
@@ -2188,6 +2188,7 @@ body .cabecera .nav__lista {
     border-radius: 1rem;
     border: 3px solid #225239;
     padding: 0 1rem;
+    margin: 0 2rem;
 }
 
 .label-form {
@@ -2345,22 +2346,6 @@ body .cabecera .nav__lista {
     color: #fff;
 }
 
-@media screen and (max-width: 445px) {
-    #carrito {
-        max-width: 50%;
-        left: 0;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    #carrito {
-        max-width: 45%;
-    }
-    .contenedor-bienvenida {
-        flex-direction: column;
-    }
-}
-
 
 /* REGISTRARSE */
 
@@ -2371,7 +2356,6 @@ body .cabecera .nav__lista {
 }
 
 .container-form {
-    width: 25%;
     background-color: #e7e7e7;
 }
 
@@ -2381,7 +2365,6 @@ body .cabecera .nav__lista {
 
 .form {
     display: flex;
-    width: 20%;
     flex-wrap: wrap;
 }
 
@@ -2411,6 +2394,82 @@ body .cabecera .nav__lista {
 
 .iniciar-sesion:hover {
     transition: all .5s;
+}
+
+@media screen and (max-width: 445px) {
+    #carrito {
+        max-width: 50%;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #carrito {
+        max-width: 45%;
+    }
+    .contenedor-bienvenida {
+        flex-direction: column;
+    }
+    .container-form {
+        width: 100%;
+    }
+}
+
+
+/* MI USUARIO */
+
+.miUsuario {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 35%;
+    position: fixed;
+    top: 7.5rem;
+    right: 0;
+    z-index: 100;
+    padding: 0 3.5rem;
+    background-color: #225239;
+}
+
+.nombre-usuario {
+    font-size: 2.2rem;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.password-usuario {
+    font-size: 2.2rem;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.nombre-usuario2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.password-usuario2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+#cambiar-password {
+    font-size: 1.8rem;
+}
+
+#establecer-password {
+    font-size: 2rem;
+    margin: 1.1rem;
+}
+
+.nueva__password--estilo {
+    font-size: 2rem;
+    border: none;
+    margin: 1.1rem;
+    padding: 0 1rem;
 }
 
 

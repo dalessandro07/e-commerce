@@ -81,3 +81,10 @@ let botonEntrar = document.getElementById("boton-entrar");
 
 let contenedorError = document.createElement("div");
 contenedorError.setAttribute("class", "contenedor-error");
+
+//! SECCION USUARIO
+
+let botonUsuario = document.getElementById("boton-usuario");
+
+let contenedorPadre = document.getElementById("miUsuario");
+let contenedorUsuario = document.getElementById("contenedor-usuario");

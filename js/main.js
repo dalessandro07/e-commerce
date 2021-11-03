@@ -3,6 +3,7 @@
 // * MOSTRAR USUARIO Y FECHA
 
 let nombreUsuario = localStorage.getItem("username");
+let passwordUsuario = localStorage.getItem("password");
 
 let contenedor = document.createElement("div");
 
@@ -257,3 +258,68 @@ function mostrarTierras() {
 //* FILTROS TOTAL DE PRODUCTOS
 
 totalProductos[0].innerText = `${productoHTML.length} productos`;
+
+//* SECCION USUARIO
+
+class Usuario {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+    cambiarPassword() {
+        let crearNuevaPassword = document.getElementById("nueva-password");
+        let establecerPassword = document.getElementById("establecer-password");
+        crearNuevaPassword.classList.toggle("d-none");
+        establecerPassword.classList.toggle("d-none");
+
+        establecerPassword.addEventListener("click", guardarNuevaPassword);
+
+        function guardarNuevaPassword(e) {
+            if ((nombreUsuario !== crearNuevaPassword.value)) {
+
+                if ((crearNuevaPassword.value.length > 5)) {
+
+                    localStorage.setItem("password", crearNuevaPassword.value);
+                    crearNuevaPassword.style.backgroundColor = "green";
+                    crearNuevaPassword.style.color = "#fff";
+                    crearNuevaPassword.classList.add("d-none");
+                    establecerPassword.classList.add("d-none");
+                } else {
+                    e.preventDefault();
+                    crearNuevaPassword.style.backgroundColor = "red";
+                    crearNuevaPassword.style.color = "#fff";
+                }
+
+            } else {
+                e.preventDefault();
+                crearNuevaPassword.style.backgroundColor = "red";
+                crearNuevaPassword.style.color = "#fff";
+            }
+        }
+    }
+}
+
+if (nombreUsuario) {
+    const usuario1 = new Usuario(`${nombreUsuario}`, `${passwordUsuario}`);
+
+    let usuario = document.createElement("div");
+    usuario.setAttribute("class", "miUsuario");
+    usuario.innerHTML = `<p class="nombre-usuario">Nombre de Usuario:</p><p class="nombre-usuario2">${usuario1.username}</p><p class="password-usuario">Contraseña:</p><p class="nombre-usuario2">${usuario1.password}</p><button class="btn btn-danger m-3" id="cambiar-password">Cambiar Contraseña</button><input id="nueva-password" placeholder="Ingresa la nueva contraseña" type="text" class="d-none nueva__password--estilo"><input id="establecer-password" class="d-none btn-success" type="submit" value="Guardar">`;
+    contenedorUsuario.appendChild(usuario);
+
+    botonUsuario.addEventListener("click", mostrarUsuario);
+
+    function mostrarUsuario() {
+        contenedorPadre.classList.toggle("d-none");
+    }
+
+    $(() => {
+        let botonCambiarPassword = document.getElementById("cambiar-password");
+
+        botonCambiarPassword.addEventListener("click", cambioDePassword);
+
+        function cambioDePassword() {
+            usuario1.cambiarPassword();
+        }
+    })
+}
