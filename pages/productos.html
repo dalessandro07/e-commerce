@@ -41,11 +41,11 @@
             <div class="navbar">
                 <i class="fas fa-moon icono-header" id="boton-dark"></i>
                 <i class="fas fa-user icono-header" id="boton-usuario"></i>
-                <i class="fas fa-shopping-cart icono-header" id="boton-carrito"></i>
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <i class="fas fa-shopping-cart icono-header" id="boton-carrito"></i><span id="contador-productos">0</span>
+                </button>
             </div>
         </nav>
-
-
 
         <!-- cierre menu de navegacion -->
 
@@ -60,15 +60,16 @@
 
     <!-- Carrito de compras -->
 
-    <div class="d-none" id="carrito">
-        <div class="contenedor-carrito">
-            <h2 class="titulo__carrito">Tu Carrito</h2>
-            <b class="contador-productos"></b>
-            <div class="contenedor__carrito d-flex justify-content-around flex-column">
-                <span class="carrito__vacio">Carrito Vacío</span>
+    <div id="carrito">
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <div class="contenedor-titulo">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">TU CARRITO</h5>
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="total">
-                <h3 class="total__carrito"></h3>
+            <div class="offcanvas-body">
+
             </div>
         </div>
     </div>

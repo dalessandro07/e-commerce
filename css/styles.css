@@ -73,10 +73,10 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-size: 60.5%;
 }
 
 html {
+    font-size: 60.5%;
     scroll-behavior: smooth;
 }
 
@@ -1034,7 +1034,7 @@ body::-webkit-scrollbar-track {
 .producto__container .producto .producto__icon {
     text-align: center;
     color: #225239;
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 5px;
 }
 
@@ -2031,7 +2031,7 @@ body .cabecera .nav__lista {
 }
 
 @media only screen and (max-width: 396px) {
-    * {
+    html {
         font-size: 55%;
     }
     .banner #titulo__banner--size {
@@ -2220,6 +2220,16 @@ body .cabecera .nav__lista {
     transition: all .2s;
 }
 
+.precio2 {
+    margin: 2rem 0;
+    font-size: 1.4rem;
+}
+
+.stock2 {
+    margin-left: 0.5rem;
+    font-size: 1.4rem;
+}
+
 
 /* DARK MODE */
 
@@ -2248,102 +2258,117 @@ body .cabecera .nav__lista {
 
 /* CARRITO */
 
-#carrito {
+.carrito-oscuro {
+    background-color: #225239;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.btn-close {
+    font-size: 1.6rem;
+    margin-bottom: 0 !important;
+    margin-right: .5rem !important;
+    margin-top: 0 !important;
+}
+
+.contenedor-principal-producto {
+    padding: 1.5rem 0 !important;
+    border-top: .5px solid #000;
+    border-bottom: .5px solid #000;
+}
+
+.contenedor-titulo {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    overflow: auto;
-    width: 35%;
-    position: fixed;
-    top: 7.5rem;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    padding: 0 3.5rem;
-    background-color: #949A88;
+    justify-content: center;
+    width: 88.5%;
+}
+
+.offcanvas-title {
+    margin-top: .5rem;
+    font-size: 3.2rem;
 }
 
 .carrito-oscuro {
     background-color: #225239 !important;
 }
 
-.agregado-carrito {
-    transform: rotate(360deg);
-    transition: all .3s;
+.cantidad {
+    font-size: 1.6rem;
 }
 
-.contenedor-producto-en-carrito {
-    margin: 2rem 0;
+.flex-shrink-5 {
+    flex-shrink: 5 !important;
 }
 
-.titulo__carrito {
+#contador-productos {
+    font-size: 1.3rem;
+    background-color: #7d1c0d;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 0.6rem;
+    position: absolute;
+    right: .5rem;
+    top: -.8rem;
+}
+
+.imagen-producto {
+    width: 25%;
+    object-fit: cover;
+    margin: 1rem 0;
+}
+
+.titulo-en-carrito {
     font-size: 2.4rem;
-    border-bottom: 3px solid #e7e7e7;
-    padding: .5rem;
-    margin: 1rem 0;
-    word-spacing: .3rem;
+}
+
+.cantidad-productos {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 50%;
+    height: 35%;
+    margin: 2rem 0;
     text-align: center;
-    color: #e7e7e7;
+    opacity: 1 !important;
 }
 
-.carrito__vacio {
-    font-size: 2rem;
-    padding: .5rem;
-    margin: 1rem 0;
-    word-spacing: .3rem;
-    text-align: center;
-    color: #e7e7e7;
+.total-producto {
+    font-size: 1.6rem;
 }
 
-.precio__carrito {
-    font-size: 2rem;
-    padding: .5rem;
-    color: #ffffff;
-    text-align: center;
-    word-spacing: .3rem;
+.contenedor-total {
+    margin-top: 2rem;
 }
 
-.producto-en-carrito {
-    margin: 1rem 0;
-}
-
-.titulo-cantidad {
-    font-size: 2rem;
-    color: #ffffff;
-}
-
-.cantidad-producto {
-    font-size: 2rem;
-    width: 40%;
-    padding: 0 5px;
-    background-color: #e7e7e7;
-    box-shadow: none;
-    border: none;
-}
-
-.total__carrito {
-    border-top: 1px solid #ffffff;
-    padding: .5rem;
-    margin: 1rem 0;
-}
-
-.contenedor-titulo-precio {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    align-content: space-evenly;
-    justify-content: space-around;
-}
-
-.contenedor-titulo-precio .titulo-producto {
-    font-size: 2rem;
-    color: #fff;
-}
-
-.contenedor-titulo-precio .precio-producto {
+.total-completo {
     font-size: 1.8rem;
-    color: #fff;
+}
+
+#numero-total {
+    font-size: 1.75rem;
+}
+
+.borrar-contenedor {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-comprar-final {
+    font-size: 1.6rem;
+    margin: 0 1rem;
+}
+
+.swal2-popup {
+    font-size: 1.8rem !important;
+}
+
+.swal2-icon {
+    font-size: 2.5rem !important;
+}
+
+.swal2-confirm {
+    font-size: 1.6rem !important;
 }
 
 
