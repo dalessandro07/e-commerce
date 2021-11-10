@@ -36,56 +36,47 @@ seccionBienvenida.appendChild(contenedor);
 
 //! PRODUCTOS
 
-const productos = [
-    { id: "t-preparada", tipo: "sustrato", nombre: "Tierra Preparada", imagen: "../assets/img/tierras.jpeg", precio: 2, stock: 54, vendidos: 3829 },
-    { id: "m-plastico", tipo: "maceta", nombre: "Macetas de Plástico", imagen: "../assets/img/macetas.jpeg", precio: 9, stock: 29, vendidos: 2764 },
-    { id: "m-fibraCoco", tipo: "maceta", nombre: "Macetas de Fibra de Coco", imagen: "../assets/img/fibra-coco.jpg", precio: 12, stock: 12, vendidos: 188 },
-    { id: "m-ceramica", tipo: "maceta", nombre: "Macetas de Cerámica", imagen: "../assets/img/ceramica.jpg", precio: 10, stock: 25, vendidos: 4779 },
-    { id: "p-hortalizas", tipo: "planta", nombre: "Plantas Hortalizas", imagen: "../assets/img/hortalizas.jpg", precio: 3, stock: 40, vendidos: 2756 },
-    { id: "p-ornamentales", tipo: "planta", nombre: "Plantas Ornamentales", imagen: "../assets/img/ornamentales.jpg", precio: 25, stock: 55, vendidos: 2138 },
-    { id: "p-orquideas", tipo: "planta", nombre: "Plantas Orquídeas", imagen: "../assets/img/orquideas.jpg", precio: 40, stock: 9, vendidos: 129 },
-    { id: "p-sucuCactus", tipo: "planta", nombre: "Suculentas y Cactus", imagen: "../assets/img/macetas-suculentas.jpg", precio: 8, stock: 17, vendidos: 1289 },
-    { id: "t-musgo", tipo: "sustrato", nombre: "Sustrato - Musgo", imagen: "../assets/img/musgo.jpg", precio: 6, stock: 27, vendidos: 123 },
-    { id: "t-vermiculita", tipo: "sustrato", nombre: "Sustrato - Vermiculita", imagen: "../assets/img/vermiculita.jpg", precio: 9, stock: 12, vendidos: 33 },
-    { id: "t-perlita", tipo: "sustrato", nombre: "Sustrato - Perlita", imagen: "../assets/img/perlita.jpg", precio: 15, stock: 11, vendidos: 110 },
-    { id: "m-cemento", tipo: "maceta", nombre: "Macetas de Cemento", imagen: "../assets/img/m-cemento.jpg", precio: 4, stock: 27, vendidos: 1540 }
-];
+$.get("../productos.json",
+    function(resultado, estado) {
+        if (estado === "success") {
+            for (const producto of resultado) {
+                let cardProducto = document.createElement("div");
+                cardProducto.setAttribute("class", `producto col-12 col-md-6 col-lg-3 ${producto.tipo}`);
+                cardProducto.setAttribute("id", `${producto.id}`);
 
-for (const producto of productos) {
-    let cardProducto = document.createElement("div");
-    cardProducto.setAttribute("class", `producto col-12 col-md-6 col-lg-3 ${producto.tipo}`);
-    cardProducto.setAttribute("id", `${producto.id}`);
+                cardProducto.innerHTML = `
+                <div class="card text-center">
+                    <img src="${producto.imagen}" class="producto__imagen card-img-top" alt="${producto.tipo}" />
+                    <div class="card-body producto__inferior">
+                        <div class="titulo">
+                            <h5 class="producto__titulo card-title">${producto.nombre}</h5>
+                        </div>
+                        <div class="precio__container">
+                            <div class="d-flex"><b class="precio2">S/</b><b class="precio">${producto.precio}</b><b class="precio2">.00 la unidad</b></div>
+                            <button class="producto__enlace boton-agregar-al-carro" id="agregar-${producto.id}">
+                            <i class="producto__icon fas fa-cart-plus">
+                            <b class="texto__carrito">Añadir al carrito</b>
+                            </i>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-center"><b class="stock">${producto.stock}</b><b class="stock2"> disponibles</b><br>
+                            </div>
+                            <div class="d-flex justify-content-center"><b class="vendidos">${producto.vendidos}</b><b class="stock2"> vendidos</b>
+                            </div>
+                            </div>
+                    </div>
+                </div>`
 
-    cardProducto.innerHTML = `
-    <div class="card text-center">
-        <img src="${producto.imagen}" class="producto__imagen card-img-top" alt="${producto.tipo}" />
-        <div class="card-body producto__inferior">
-            <div class="titulo">
-                <h5 class="producto__titulo card-title">${producto.nombre}</h5>
-            </div>
-            <div class="precio__container">
-                <div class="d-flex"><b class="precio2">S/</b><b class="precio">${producto.precio}</b><b class="precio2">.00 la unidad</b></div>
-                <button class="producto__enlace boton-agregar-al-carro" id="agregar-${producto.id}">
-                <i class="producto__icon fas fa-cart-plus">
-                <b class="texto__carrito">Añadir al carrito</b>
-                </i>
-                </button>
-            </div>
-            <div>
-                <div class="d-flex justify-content-center"><b class="stock">${producto.stock}</b><b class="stock2"> disponibles</b><br>
-                </div>
-                <div class="d-flex justify-content-center"><b class="vendidos">${producto.vendidos}</b><b class="stock2"> vendidos</b>
-                </div>
-                </div>
-        </div>
-    </div>`
+                listaCards.push(cardProducto);
 
-    listaCards.push(cardProducto);
-
-    for (const card of listaCards) {
-        contenedorProductos[0].appendChild(card);
-    }
-}
+                for (const card of listaCards) {
+                    contenedorProductos[0].appendChild(card);
+                }
+            }
+        }
+    },
+);
 
 // * FUNCION DARK MODE
 
@@ -116,65 +107,71 @@ $(() => {
 
 //? AGREGO LOS EVENTOS CON JQUERY
 
-$("#masVendidos").click(function() {
-    let productosOrdenados = (productos.sort((a, b) => {
-        return b.vendidos - a.vendidos;
-    }));
+$.get("../productos.json",
+    function(resultado, estado) {
+        if (estado === "success") {
+            $("#masVendidos").click(function() {
+                let productosOrdenados = (resultado.sort((a, b) => {
+                    return b.vendidos - a.vendidos;
+                }));
 
-    for (const producto of productosOrdenados) {
-        listaCards.splice(0, listaCards.length);
-        listaCards.push($(`#${producto.id}`));
+                for (const producto of productosOrdenados) {
+                    listaCards.splice(0, listaCards.length);
+                    listaCards.push($(`#${producto.id}`));
 
-        for (const card of listaCards) {
-            $(".producto__container").append(card);
+                    for (const card of listaCards) {
+                        $(".producto__container").append(card);
+                    }
+                }
+            });
+
+            $("#mayorStock").click(function() {
+                let productosOrdenados = (resultado.sort((a, b) => {
+                    return b.stock - a.stock;
+                }));
+
+                for (const producto of productosOrdenados) {
+                    listaCards.splice(0, listaCards.length);
+                    listaCards.push($(`#${producto.id}`));
+
+                    for (const card of listaCards) {
+                        $(".producto__container").append(card);
+                    }
+                }
+            })
+
+            $("#mayorPrecio").click(function() {
+                let productosOrdenados = (resultado.sort((a, b) => {
+                    return b.precio - a.precio;
+                }));
+
+                for (const producto of productosOrdenados) {
+                    listaCards.splice(0, listaCards.length);
+                    listaCards.push($(`#${producto.id}`));
+
+                    for (const card of listaCards) {
+                        $(".producto__container").append(card);
+                    }
+                }
+            });
+
+            $("#menorPrecio").click(function() {
+                let productosOrdenados = (resultado.sort((a, b) => {
+                    return a.precio - b.precio;
+                }));
+
+                for (const producto of productosOrdenados) {
+                    listaCards.splice(0, listaCards.length);
+                    listaCards.push($(`#${producto.id}`));
+
+                    for (const card of listaCards) {
+                        $(".producto__container").append(card);
+                    }
+                }
+            });
         }
-    }
-});
-
-$("#mayorStock").click(function() {
-    let productosOrdenados = (productos.sort((a, b) => {
-        return b.stock - a.stock;
-    }));
-
-    for (const producto of productosOrdenados) {
-        listaCards.splice(0, listaCards.length);
-        listaCards.push($(`#${producto.id}`));
-
-        for (const card of listaCards) {
-            $(".producto__container").append(card);
-        }
-    }
-})
-
-$("#mayorPrecio").click(function() {
-    let productosOrdenados = (productos.sort((a, b) => {
-        return b.precio - a.precio;
-    }));
-
-    for (const producto of productosOrdenados) {
-        listaCards.splice(0, listaCards.length);
-        listaCards.push($(`#${producto.id}`));
-
-        for (const card of listaCards) {
-            $(".producto__container").append(card);
-        }
-    }
-});
-
-$("#menorPrecio").click(function() {
-    let productosOrdenados = (productos.sort((a, b) => {
-        return a.precio - b.precio;
-    }));
-
-    for (const producto of productosOrdenados) {
-        listaCards.splice(0, listaCards.length);
-        listaCards.push($(`#${producto.id}`));
-
-        for (const card of listaCards) {
-            $(".producto__container").append(card);
-        }
-    }
-});
+    },
+);
 
 //* AGREGUÉ FUNCIONALIDAD EN FILTROS POR SECCIONES (PLANTAS, MACETAS Y TIERRAS)
 

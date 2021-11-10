@@ -1,0 +1,109 @@
+[{
+        "tipo": "sustrato",
+        "nombre": "Tierra Preparada",
+        "imagen": "../assets/img/tierras.jpeg",
+        "id": "t-preparada",
+        "vendidos": 3829,
+        "stock": 54,
+        "precio": 2
+    },
+    {
+        "tipo": "maceta",
+        "nombre": "Macetas de Plástico",
+        "imagen": "../assets/img/macetas.jpeg",
+        "id": "m-plastico",
+        "vendidos": 2764,
+        "stock": 29,
+        "precio": 9
+    },
+    {
+        "tipo": "maceta",
+        "nombre": "Macetas de Fibra de Coco",
+        "imagen": "../assets/img/fibra-coco.jpg",
+        "id": "m-fibraCoco",
+        "vendidos": 188,
+        "stock": 12,
+        "precio": 12
+    },
+    {
+        "tipo": "maceta",
+        "nombre": "Macetas de Cerámica",
+        "imagen": "../assets/img/ceramica.jpg",
+        "id": "m-ceramica",
+        "vendidos": 4779,
+        "stock": 25,
+        "precio": 10
+    },
+    {
+        "tipo": "planta",
+        "nombre": "Plantas Hortalizas",
+        "imagen": "../assets/img/hortalizas.jpg",
+        "id": "p-hortalizas",
+        "vendidos": 2756,
+        "stock": 40,
+        "precio": 3
+    },
+    {
+        "tipo": "planta",
+        "nombre": "Plantas Ornamentales",
+        "imagen": "../assets/img/ornamentales.jpg",
+        "id": "p-ornamentales",
+        "vendidos": 2138,
+        "stock": 55,
+        "precio": 25
+    },
+    {
+        "tipo": "planta",
+        "nombre": "Plantas Orquídeas",
+        "imagen": "../assets/img/orquideas.jpg",
+        "id": "p-orquideas",
+        "vendidos": 129,
+        "stock": 9,
+        "precio": 40
+    },
+    {
+        "tipo": "planta",
+        "nombre": "Suculentas y Cactus",
+        "imagen": "../assets/img/macetas-suculentas.jpg",
+        "id": "p-sucuCactus",
+        "vendidos": 1289,
+        "stock": 17,
+        "precio": 8
+    },
+    {
+        "tipo": "sustrato",
+        "nombre": "Sustrato - Musgo",
+        "imagen": "../assets/img/musgo.jpg",
+        "id": "t-musgo",
+        "vendidos": 123,
+        "stock": 27,
+        "precio": 6
+    },
+    {
+        "tipo": "sustrato",
+        "nombre": "Sustrato - Vermiculita",
+        "imagen": "../assets/img/vermiculita.jpg",
+        "id": "t-vermiculita",
+        "vendidos": 33,
+        "stock": 12,
+        "precio": 9
+    },
+    {
+        "tipo": "sustrato",
+        "nombre": "Sustrato - Perlita",
+        "imagen": "../assets/img/perlita.jpg",
+        "id": "t-perlita",
+        "vendidos": 110,
+        "stock": 11,
+        "precio": 15
+    },
+    {
+        "tipo": "maceta",
+        "nombre": "Macetas de Cemento",
+        "imagen": "../assets/img/m-cemento.jpg",
+        "id": "m-cemento",
+        "vendidos": 1540,
+        "stock": 27,
+        "precio": 4
+    }
+]
