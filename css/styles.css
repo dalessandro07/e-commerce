@@ -366,6 +366,7 @@ body .footer__main .redes .redes__lista {
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
     margin-top: 1rem;
+    list-style-type: none;
 }
 
 body .footer__main .redes .redes__lista .wsp i:hover {
@@ -2220,9 +2221,13 @@ body .cabecera .nav__lista {
     transition: all .2s;
 }
 
+.precio {
+    font-size: 1.6rem !important;
+}
+
 .precio2 {
     margin: 2rem 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .stock2 {
@@ -2253,6 +2258,11 @@ body .cabecera .nav__lista {
 
 .texto-oscuro {
     color: #ffffff !important;
+}
+
+.borde-oscuro {
+    border-top: .5px solid #ffffff !important;
+    border-bottom: .5px solid #ffffff !important;
 }
 
 
@@ -2368,7 +2378,7 @@ body .cabecera .nav__lista {
 }
 
 .swal2-confirm {
-    font-size: 1.6rem !important;
+    font-size: 1.8rem !important;
 }
 
 
@@ -2495,6 +2505,10 @@ body .cabecera .nav__lista {
     border: none;
     margin: 1.1rem;
     padding: 0 1rem;
+}
+
+ul {
+    padding: 0;
 }
 
 

@@ -97,6 +97,7 @@ $(() => {
         $(".cabecera__logo").toggleClass("logo-oscuro");
         $("h1").toggleClass("texto-oscuro");
         $(".offcanvas").toggleClass("carrito-oscuro");
+        $(".contenedor-principal-producto").toggleClass("borde-oscuro");
         $(".fas").toggleClass("texto-oscuro");
         $(".card").toggleClass("card-oscuro");
         $("h5").toggleClass("texto-oscuro");
@@ -106,6 +107,8 @@ $(() => {
         $("label").toggleClass("texto-oscuro");
         $("input").toggleClass("texto-oscuro");
         $("div").toggleClass("texto-oscuro");
+        $(".cantidad-productos:input[value='']").toggleClass("texto-oscuro");
+        $(".btn-close").toggleClass("btn-close-white");
     });
 })
 
@@ -119,13 +122,11 @@ $("#masVendidos").click(function() {
     }));
 
     for (const producto of productosOrdenados) {
-        let cardProductoOrdenado = document.getElementById(`${producto.id}`);
-
         listaCards.splice(0, listaCards.length);
-        listaCards.push(cardProductoOrdenado);
+        listaCards.push($(`#${producto.id}`));
 
         for (const card of listaCards) {
-            contenedorProductos[0].appendChild(card);
+            $(".producto__container").append(card);
         }
     }
 });
@@ -136,13 +137,11 @@ $("#mayorStock").click(function() {
     }));
 
     for (const producto of productosOrdenados) {
-        let cardProductoOrdenado = document.getElementById(`${producto.id}`);
-
         listaCards.splice(0, listaCards.length);
-        listaCards.push(cardProductoOrdenado);
+        listaCards.push($(`#${producto.id}`));
 
         for (const card of listaCards) {
-            contenedorProductos[0].appendChild(card);
+            $(".producto__container").append(card);
         }
     }
 })
@@ -153,13 +152,11 @@ $("#mayorPrecio").click(function() {
     }));
 
     for (const producto of productosOrdenados) {
-        let cardProductoOrdenado = document.getElementById(`${producto.id}`);
-
         listaCards.splice(0, listaCards.length);
-        listaCards.push(cardProductoOrdenado);
+        listaCards.push($(`#${producto.id}`));
 
         for (const card of listaCards) {
-            contenedorProductos[0].appendChild(card);
+            $(".producto__container").append(card);
         }
     }
 });
@@ -170,13 +167,11 @@ $("#menorPrecio").click(function() {
     }));
 
     for (const producto of productosOrdenados) {
-        let cardProductoOrdenado = document.getElementById(`${producto.id}`);
-
         listaCards.splice(0, listaCards.length);
-        listaCards.push(cardProductoOrdenado);
+        listaCards.push($(`#${producto.id}`));
 
         for (const card of listaCards) {
-            contenedorProductos[0].appendChild(card);
+            $(".producto__container").append(card);
         }
     }
 });
@@ -193,23 +188,23 @@ $("#todos").click(function() {
 });
 
 $("#plantas").click(function() {
-    $(".maceta").fadeOut("fast");
-    $(".sustrato").fadeOut("fast");
-    $(".planta").fadeIn("fast");
+    $(".maceta").fadeOut();
+    $(".sustrato").fadeOut();
+    $(".planta").fadeOut().fadeIn("slow");
     totalProductos[0].innerText = `${plantas.length} productos`;
 });
 
 $("#macetas").click(function() {
-    $(".maceta").fadeIn("fast");
-    $(".sustrato").fadeOut("fast");
-    $(".planta").fadeOut("fast");
+    $(".maceta").fadeOut().fadeIn("slow");
+    $(".planta").fadeOut();
+    $(".sustrato").fadeOut();
     totalProductos[0].innerText = `${macetas.length} productos`;
 });
 
 $("#tierras").click(function() {
-    $(".maceta").fadeOut("fast");
-    $(".sustrato").fadeIn("fast");
-    $(".planta").fadeOut("fast");
+    $(".maceta").fadeOut();
+    $(".planta").fadeOut();
+    $(".sustrato").fadeOut().fadeIn("slow");
     totalProductos[0].innerText = `${sustratos.length} productos`;
 })
 
@@ -262,7 +257,9 @@ if (nombreUsuario) {
 
     let usuario = document.createElement("div");
     usuario.setAttribute("class", "miUsuario");
-    usuario.innerHTML = `<p class="nombre-usuario">Nombre de Usuario:</p><p class="nombre-usuario2">${usuario1.username}</p><p class="password-usuario">Contraseña:</p><p class="nombre-usuario2">${usuario1.password}</p><button class="btn btn-danger m-3" id="cambiar-password">Cambiar Contraseña</button><input id="nueva-password" placeholder="Ingresa la nueva contraseña" type="text" class="d-none nueva__password--estilo"><input id="establecer-password" class="d-none btn-success" type="submit" value="Guardar">`;
+    usuario.innerHTML = `
+    <p class="nombre-usuario">Nombre de Usuario:</p><p class="nombre-usuario2">${usuario1.username}</p><p class="password-usuario">Contraseña:</p><p class="nombre-usuario2">${usuario1.password}</p><button class="btn btn-danger m-3" id="cambiar-password">Cambiar Contraseña</button><input id="nueva-password" placeholder="Ingresa la nueva contraseña" type="text" class="d-none nueva__password--estilo"><input id="establecer-password" class="d-none btn-success" type="submit" value="Guardar">`;
+
     contenedorUsuario.appendChild(usuario);
 
     botonUsuario.addEventListener("click", mostrarUsuario);
@@ -285,8 +282,6 @@ if (nombreUsuario) {
 //* CARRITO
 
 let carrito = [];
-let totalCarrito = [];
-
 class Producto {
     constructor(titulo, precio, stock, imagen, id, cantidad) {
         this.titulo = titulo;
@@ -314,13 +309,10 @@ if (nombreUsuario) {
         let productoPrecio = productoSeleccionado.querySelector(".precio").textContent;
         let productoStock = productoSeleccionado.querySelector(".stock").textContent;
         let productoImagen = productoSeleccionado.querySelector(".producto__imagen").src;
-        let cantidad = 1;
-        cantidad = cantidad + 1;
 
         if ((filtrado === undefined)) {
-            mostrarProductoEnCarrito(productoTitulo, productoPrecio, productoStock, productoImagen, idPadre, cantidad);
+            mostrarProductoEnCarrito(productoTitulo, productoPrecio, productoStock, productoImagen, idPadre);
         } else {
-            console.log("🚀 - cantidad", cantidad);
             return;
         }
     }
@@ -344,23 +336,25 @@ if (nombreUsuario) {
 
         $(() => {
             $("#vaciar").click(function(e) {
-                e.preventDefault();
-                localStorage.removeItem("carrito");
-                carrito.splice(0, carrito.length);
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Carrito vaciado correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                $("#contador-productos").text("0");
-                $(".contenedor-principal-producto").remove();
-                $(".offcanvas-body").append(contenedorTotal);
-                $("#numero-total").text("0");
+                if (carrito.length > 0) {
+                    e.preventDefault();
+                    localStorage.removeItem("carrito");
+                    carrito.splice(0, carrito.length);
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Carrito vaciado correctamente',
+                        showConfirmButton: false,
+                        timer: 1200
+                    })
+                    $("#contador-productos").text("0");
+                    $(".contenedor-principal-producto").remove();
+                    $(".offcanvas-body").append(contenedorTotal);
+                    $("#numero-total").text("0");
+                }
             });
             $("#comprar").click(function(e) {
-                let ordenCompra = Math.round(Math.random() * (99999999 - 11111111) + 11111111);
+                ordenCompra = Math.round(Math.random() * (99999999 - 11111111) + 11111111);
                 if ((carrito.length > 0)) {
                     e.preventDefault();
                     Swal.fire(
@@ -379,8 +373,6 @@ if (nombreUsuario) {
         })
     }
 
-    crearSeccionTotal();
-
     function mostrarProductoEnCarrito(titulo, precio, stock, imagen, id) {
 
         const producto = new Producto(titulo, precio, stock, imagen, id);
@@ -398,7 +390,7 @@ if (nombreUsuario) {
             <div class="d-flex flex-column justify-content-center align-items-center w-50 contenedor-tps">
                 <h3 class="text-center titulo-en-carrito">${producto.titulo}</h3>
                 <div>
-                <b class="precio2">S/</b><b class="precio2 precio-producto-en-carrito">${producto.precio}</b><b class="precio2">.00 la unidad</b><br>
+                <b class="precio2">Precio: S/</b><b class="precio2 precio-producto-en-carrito">${producto.precio}</b><br>
                 </div>
                 <div>
                 <b class="stock2">Stock:</b><b class="stock2 stock-producto-numero">${producto.stock}</b>
@@ -423,43 +415,70 @@ if (nombreUsuario) {
         let contador = document.getElementById("contador-productos");
         contador.innerText = carrito.length;
 
+        calcularTotal();
+
         $("#aumentar").click(function(e) {
 
             let botonSeleccionado = e.target;
-            let productoSeleccionado = botonSeleccionado.closest(".form-cantidad");
-            let inputSeleccionado = productoSeleccionado.querySelector(".cantidad-productos");
+            let productoSeleccionado = botonSeleccionado.closest(".contenedor-principal-producto");
+            let formSeleccionado = botonSeleccionado.closest(".form-cantidad");
+            let inputSeleccionado = formSeleccionado.querySelector(".cantidad-productos");
+            let precioSeleccionado = productoSeleccionado.querySelector(".precio-producto-en-carrito");
 
             if (parseInt(inputSeleccionado.value) < parseInt(inputSeleccionado.max)) {
-                inputSeleccionado.value = parseInt(inputSeleccionado.value) + 1;
-                calcularTotal(precio, inputSeleccionado.value);
+                parseInt(inputSeleccionado.value++);
             } else {
                 return;
             }
+            precioSeleccionado.innerText = precio * inputSeleccionado.value;
+            calcularTotal();
         });
 
         $("#restar").click(function(e) {
 
             let botonSeleccionado = e.target;
-            let productoSeleccionado = botonSeleccionado.closest(".form-cantidad");
-            let inputSeleccionado = productoSeleccionado.querySelector(".cantidad-productos");
+            let productoSeleccionado = botonSeleccionado.closest(".contenedor-principal-producto");
+            let formSeleccionado = botonSeleccionado.closest(".form-cantidad");
+            let inputSeleccionado = formSeleccionado.querySelector(".cantidad-productos");
+            let precioSeleccionado = productoSeleccionado.querySelector(".precio-producto-en-carrito");
 
             if (parseInt(inputSeleccionado.value) > 1) {
-                inputSeleccionado.value = parseInt(inputSeleccionado.value) - 1;
-                calcularTotal(precio, inputSeleccionado.value);
+                parseInt(inputSeleccionado.value--);
+            } else if (parseInt(inputSeleccionado.value) === 1) {
+                Swal.fire({
+                    title: '¿Deseas elminar el producto del carrito?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    cancelButtonText: 'No, mantener producto',
+                    cancelButtonColor: "blue",
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: '¡Sí, borrar producto!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        productoSeleccionado.remove();
+                        carrito.pop();
+                        inputSeleccionado.value = 0;
+                        contador.innerText--;
+                    }
+                })
             } else {
                 return;
             }
-
+            precioSeleccionado.innerText = precio * inputSeleccionado.value;
+            calcularTotal();
         });
     }
 
-    function calcularTotal(precio, cantidad) {
-        let totalParcial = (parseInt(precio * cantidad));
-        totalCarrito.push(totalParcial);
+    crearSeccionTotal();
+
+    function calcularTotal() {
+        let precioProducto = document.getElementsByClassName("precio-producto-en-carrito");
         let totalFinal = 0;
-        for (const total of totalCarrito) {
-            totalFinal += total;
+        for (let i = 0; i < precioProducto.length; i++) {
+            totalFinal += parseInt(precioProducto[i].textContent);
         }
-        console.log("🚀 - totalFinal", totalFinal);
+        $("#numero-total").text(totalFinal);
     }
+
 }
