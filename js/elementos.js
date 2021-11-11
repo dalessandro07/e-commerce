@@ -31,10 +31,6 @@ let plantas = document.getElementsByClassName("planta");
 let macetas = document.getElementsByClassName("maceta");
 let sustratos = document.getElementsByClassName("sustrato");
 
-//* TOTAL DE PRODUCTOS
-
-let totalProductos = document.getElementsByClassName("total--color");
-
 //! SECCION REGISTRO E INGRESO
 
 let labels = document.getElementsByTagName("label");
