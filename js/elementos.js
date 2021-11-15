@@ -70,3 +70,4 @@ let contenedorUsuario = document.getElementById("contenedor-usuario");
 //! CARRITO
 
 let carritoContenedor = document.getElementsByClassName("offcanvas-body");
+let comprasContenedor = document.getElementsByClassName("offcanvas-body2");

@@ -44,6 +44,10 @@
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="fas fa-shopping-cart icono-header" id="boton-carrito"></i><span id="contador-productos">0</span>
                 </button>
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="fas fa-shopping-bag icono-header" id="boton-compras"></i><span id="contador-compras">0</span>
+                </button>
+
             </div>
         </nav>
 
@@ -70,6 +74,26 @@
             </div>
             <div class="offcanvas-body">
 
+            </div>
+        </div>
+    </div>
+
+    <div id="compras">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <div class="contenedor-titulo">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">TUS COMPRAS</h5>
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body2">
+                <div class="filtros-compra">
+                    <label for="" class="label-filtro-compra">Buscar compra:</label>
+                    <input type="number" class="busqueda form-control">
+                </div>
+                <div class="contenedor-compra">
+
+                </div>
             </div>
         </div>
     </div>
@@ -222,6 +246,7 @@
     <!--? MI JAVASCRIPT -->
     <script src="../js/elementos.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/carrito.js"></script>
 </body>
 
 </html>

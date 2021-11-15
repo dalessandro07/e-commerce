@@ -19,8 +19,12 @@ function validarRegistro(e) {
 
                 e.preventDefault();
 
-                contenedorError.innerHTML = `<b class='error d-block m-5' style='color:green;'>* ${usernameRegistrado} ¡Te has registrado con éxito! ✅</b> <a href="../pages/ingreso.html" class="boton-entrar">Iniciar Sesión</a>`
-                document.getElementById("contenedor-formulario").appendChild(contenedorError);
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Cuenta registrada con éxito!',
+                    showConfirmButton: false,
+                    footer: '<a href="../pages/ingreso.html" class="boton-entrar">¡Iniciar Sesión!</a>'
+                })
             }
 
         } else {

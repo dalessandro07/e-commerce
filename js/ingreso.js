@@ -15,8 +15,13 @@ function validarIngreso(e) {
     if ((usernameIngresado === usernameCreado) && (passwordIngresado === passwordCreado)) {
         e.preventDefault();
 
-        contenedorError.innerHTML = `<b class='error d-block m-5' style='color:green;'>* ¡Sesión iniciada correctamente! ✅</b> <a href="../pages/productos.html" class="boton-entrar">Ver productos</a>`
-        document.getElementById("contenedor-formulario").appendChild(contenedorError);
+        Swal.fire({
+            icon: 'success',
+            title: '¡Sesión iniciada correctamente!',
+            showConfirmButton: false,
+            footer: '<a href="../pages/productos.html" class="boton-entrar">¡Ver Productos!</a>'
+        })
+
     } else {
         e.preventDefault();
         contenedorError.innerHTML = "<b class='error' style='color:red;'>* ¡Ingresaste un nombre de usuario o contraseña incorrecto, inténtalo de nuevo!</b>"

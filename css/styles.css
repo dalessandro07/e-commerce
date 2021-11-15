@@ -2203,7 +2203,7 @@ body .cabecera .nav__lista {
     color: #fff;
     margin-top: 3rem;
     border-radius: 1rem;
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1.5rem;
     border: 3px solid #225239;
 }
@@ -2289,10 +2289,16 @@ body .cabecera .nav__lista {
     border-bottom: .5px solid #000;
 }
 
+.contenedor-principal-compra {
+    padding: 1.5rem 0 !important;
+    border-top: .5px solid #000;
+    border-bottom: .5px solid #000;
+}
+
 .contenedor-titulo {
     display: flex;
     justify-content: center;
-    width: 88.5%;
+    width: 100%;
 }
 
 .offcanvas-title {
@@ -2319,8 +2325,23 @@ body .cabecera .nav__lista {
     border-radius: 50%;
     padding: 0 0.6rem;
     position: absolute;
-    right: .5rem;
+    right: 6.2rem;
     top: -.8rem;
+}
+
+#contador-compras {
+    font-size: 1.3rem;
+    background-color: #7d1c0d;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 0.6rem;
+    position: absolute;
+    right: 0.5rem;
+    top: -.8rem;
+}
+
+.offcanvas-body2 {
+    overflow-y: auto;
 }
 
 .imagen-producto {
@@ -2330,6 +2351,7 @@ body .cabecera .nav__lista {
 }
 
 .titulo-en-carrito {
+    max-width: 14.5rem;
     font-size: 2.4rem;
 }
 
@@ -2379,6 +2401,68 @@ body .cabecera .nav__lista {
 
 .swal2-confirm {
     font-size: 1.8rem !important;
+}
+
+.swal2-footer {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.swal2-image {
+    object-fit: cover;
+}
+
+.swal2-warning {
+    position: absolute !important;
+    z-index: 500;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* COMPRA */
+
+.titulo-en-compra {
+    font-size: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto-compra {
+    font-size: 1.8rem;
+}
+
+.texto-compra2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.label-filtro-compra {
+    display: flex;
+    justify-content: center;
+    font-size: 2.6rem;
+    text-align: center;
+    padding: 1rem 4rem 1rem 0;
+    border-top: 1.5px solid #000;
+}
+
+.busqueda {
+    width: 90%;
+    margin: auto;
+    font-size: 2rem;
+}
+
+.no-encontrado {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: .5rem 2.2rem;
+}
+
+.no-encontrado-orden-compra {
+    font-size: 1.8rem;
 }
 
 
@@ -2435,6 +2519,9 @@ body .cabecera .nav__lista {
     #carrito {
         max-width: 50%;
         left: 0;
+    }
+    body .cabecera .cabecera__nav {
+        justify-content: center;
     }
 }
 
