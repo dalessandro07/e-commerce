@@ -18,9 +18,12 @@ function validarIngreso(e) {
         Swal.fire({
             icon: 'success',
             title: '¡Sesión iniciada correctamente!',
-            showConfirmButton: false,
-            footer: '<a href="../pages/productos.html" class="boton-entrar">¡Ver Productos!</a>'
+            showConfirmButton: false
         })
+
+        setTimeout(function() {
+            window.location.href = "../pages/productos.html"
+        }, 1900);
 
     } else {
         e.preventDefault();

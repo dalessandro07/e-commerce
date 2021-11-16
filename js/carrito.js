@@ -265,7 +265,6 @@ $(window).on("load", function() {
                                 toast.addEventListener('mouseleave', Swal.resumeTimer)
                             }
                         })
-
                         Toast.fire({
                             icon: 'success',
                             title: `¡Orden de compra copiado! N°${ordenCompra}`

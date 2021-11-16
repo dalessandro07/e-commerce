@@ -2549,46 +2549,50 @@ body .cabecera .nav__lista {
 
 /* MI USUARIO */
 
+.titulo-cuenta {
+    font-size: 3.2rem;
+    color: #212529 !important;
+}
+
+.boton-sin-cuenta {
+    width: 100%;
+    text-align: center;
+    font-size: 2.6rem;
+    margin: 2.5rem 0;
+    color: #0d6efd;
+}
+
 .miUsuario {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     overflow: auto;
-    width: 35%;
-    position: fixed;
-    top: 7.5rem;
-    right: 0;
-    z-index: 100;
     padding: 0 3.5rem;
-    background-color: #225239;
 }
 
 .nombre-usuario {
     font-size: 2.2rem;
     text-decoration: underline;
-    color: #fff;
 }
 
 .password-usuario {
     font-size: 2.2rem;
     text-decoration: underline;
-    color: #fff;
 }
 
 .nombre-usuario2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
-    color: #fff;
 }
 
 .password-usuario2 {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 2.4rem;
     text-align: center;
 }
 
-#cambiar-password {
-    font-size: 1.8rem;
+#cambiar-password,
+#borrar-cuenta {
+    font-size: 2rem;
 }
 
 #establecer-password {

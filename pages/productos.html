@@ -40,7 +40,9 @@
             </button>
             <div class="navbar">
                 <i class="fas fa-moon icono-header" id="boton-dark"></i>
-                <i class="fas fa-user icono-header" id="boton-usuario"></i>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fas fa-user icono-header" id="boton-usuario"></i>
+                </button>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="fas fa-shopping-cart icono-header" id="boton-carrito"></i><span id="contador-productos">0</span>
                 </button>
@@ -57,8 +59,24 @@
 
     <!-- Seccion Usuario -->
 
-    <div class="d-none" id="miUsuario">
-        <div id="contenedor-usuario">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="titulo-cuenta text-center w-100" id="exampleModalLabel">TU CUENTA</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="contenedor-usuario">
+                        <div id="sin-cuenta" class="text-center">
+                            <a class="boton-sin-cuenta text-center" href="registro.html">
+                                ¡Créate una cuenta en La Casa De Las Plantas Perú!
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -216,58 +216,90 @@ class Usuario {
         this.password = password;
     }
     cambiarPassword() {
-        let crearNuevaPassword = document.getElementById("nueva-password");
-        let establecerPassword = document.getElementById("establecer-password");
-        crearNuevaPassword.classList.toggle("d-none");
-        establecerPassword.classList.toggle("d-none");
 
-        establecerPassword.addEventListener("click", guardarNuevaPassword);
+        $("#cambio-pass").removeAttr("disabled");
+        $("#cambio-pass").removeAttr("value");
+        $("#cambio-pass").attr("placeholder", "Escribe la nueva contraseña...");
 
-        function guardarNuevaPassword(e) {
-            if (nombreUsuario !== crearNuevaPassword.value) {
-                if (crearNuevaPassword.value.length > 5) {
-                    localStorage.setItem("password", crearNuevaPassword.value);
-                    crearNuevaPassword.style.backgroundColor = "green";
-                    crearNuevaPassword.style.color = "#fff";
-                    crearNuevaPassword.classList.add("d-none");
-                    establecerPassword.classList.add("d-none");
+        $("#cambio-pass").on("input", function() {
+            let nuevaPass = $("#cambio-pass").val();
+            $("#cambiar-password").one('click', function() {
+                if ((nuevaPass.length > 8) && (nuevaPass !== $("#cambio-user").val())) {
+                    localStorage.setItem("password", nuevaPass);
+                    $("#error-password").addClass("d-none");
+                    $("#correcto-password").removeClass("d-none");
+
+                    $("#cambio-pass").css("border-color", "#198754");
+                    $("#cambio-pass").attr("disabled", "disabled");
                 } else {
-                    e.preventDefault();
-                    crearNuevaPassword.style.backgroundColor = "red";
-                    crearNuevaPassword.style.color = "#fff";
+                    $("#correcto-password").addClass("d-none");
+                    $("#error-password").removeClass("d-none");
+                    $("#cambio-pass").css("border-color", "#dc3545");
                 }
-            } else {
-                e.preventDefault();
-                crearNuevaPassword.style.backgroundColor = "red";
-                crearNuevaPassword.style.color = "#fff";
+            });
+        });
+    }
+    borrarCuenta() {
+        Swal.fire({
+            title: "¿Deseas eliminar tu cuenta?",
+            text: "¡Esta acción no se puede deshacer!",
+            icon: "info",
+            showCancelButton: true,
+            cancelButtonText: "No, mantener cuenta",
+            cancelButtonColor: "blue",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "¡Sí, eliminar cuenta!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem("password");
+                localStorage.removeItem("username");
+                window.location.reload();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: '¡Tu cuenta ha sido borrada!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             }
-        }
+        });
     }
 }
 
 if (nombreUsuario) {
+    $("#sin-cuenta").hide();
+
     const usuario1 = new Usuario(`${nombreUsuario}`, `${passwordUsuario}`);
 
     let usuario = document.createElement("div");
+
     usuario.setAttribute("class", "miUsuario");
+
     usuario.innerHTML = `
-    <p class="nombre-usuario">Nombre de Usuario:</p><p class="nombre-usuario2">${usuario1.username}</p><p class="password-usuario">Contraseña:</p><p class="nombre-usuario2">${usuario1.password}</p><button class="btn btn-danger m-3" id="cambiar-password">Cambiar Contraseña</button><input id="nueva-password" placeholder="Ingresa la nueva contraseña" type="text" class="d-none nueva__password--estilo"><input id="establecer-password" class="d-none btn-success" type="submit" value="Guardar">`;
+    <div class="p-3 d-flex flex-column align-content-center justify-content-center">
+        <label class="nombre-usuario">Nombre de Usuario:</label>
+        <input type="text" class="m-3 nombre-usuario2" id="cambio-user" value="${usuario1.username}" disabled>
+    </div>
+    <div class="p-3 d-flex flex-column align-content-center justify-content-center">
+        <label class="password-usuario">Contraseña:</label>
+        <input type="text" class="m-3 nombre-usuario2" id="cambio-pass" value="${usuario1.password}" disabled>
+        <b class='error d-none' id="error-password" style='color:#dc3545;'>* ¡La contraseña debe tener más de 8 caracteres y debe ser diferente al nombre de usuario!</b>
+        <b class='error d-none' id="correcto-password" style='color:#198754;'>* ¡La contraseña se cambió con éxito!</b>
+    </div>
+    <div class="contenedor-botones d-flex justify-content-around">
+        <button class="btn btn-danger m-3" id="cambiar-password">Cambiar Contraseña</button>
+        <button class="btn btn-danger m-3" id="borrar-cuenta">Borrar Cuenta</button>
+    </div>`;
 
-    contenedorUsuario.appendChild(usuario);
-
-    botonUsuario.addEventListener("click", mostrarUsuario);
-
-    function mostrarUsuario() {
-        contenedorPadre.classList.toggle("d-none");
-    }
+    $("#contenedor-usuario").append(usuario);
 
     $(() => {
-        let botonCambiarPassword = document.getElementById("cambiar-password");
-
-        botonCambiarPassword.addEventListener("click", cambioDePassword);
-
-        function cambioDePassword() {
+        $("#cambiar-password").click(function() {
             usuario1.cambiarPassword();
-        }
+        });
+        $("#borrar-cuenta").click(function() {
+            usuario1.borrarCuenta();
+        });
     });
 }
