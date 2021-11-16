@@ -102,7 +102,6 @@ $(() => {
         $("h2").toggleClass("texto-oscuro");
         $("h3").toggleClass("texto-oscuro");
         $("label").toggleClass("texto-oscuro");
-        $("input").toggleClass("texto-oscuro");
         $("div").toggleClass("texto-oscuro");
         $(".cantidad-productos:input[value='']").toggleClass("texto-oscuro");
         $(".btn-close").toggleClass("btn-close-white");

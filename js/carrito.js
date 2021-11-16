@@ -208,15 +208,6 @@ $(window).on("load", function() {
 
             carritoContenedor[0].appendChild(contenedorTotal);
 
-            //* SECCION COMPRAS
-
-            let noSeEncontro = document.createElement("div");
-            noSeEncontro.setAttribute("class", "no-encontrado-contenedor");
-
-            noSeEncontro.innerHTML = `<p class="no-encontrado">No se encontró la compra N° <b class="no-encontrado-orden-compra">0</b></p>`;
-
-            $(".filtros-compra").append(noSeEncontro);
-
             //* BOTONES DEL CARRITO
 
             $("#vaciar").click(function() {
@@ -257,8 +248,28 @@ $(window).on("load", function() {
                     );
                     Swal.fire({
                         title: "¡Felicidades su compra se realizó con éxito!",
-                        html: `¡Gracias por comprar en <b>La Casa De Las Plantas Perú</b> Recuerde anotar su número de compra! <hr> ORDEN DE COMPRA: <b>#${ordenCompra}</b>`,
+                        html: `¡Gracias por comprar en <b>La Casa De Las Plantas Perú!</b> <span class="recuerde">¡Recuerde su número de compra!</span> <hr> ORDEN DE COMPRA: <b>#${ordenCompra}</b>`,
                         icon: "success",
+                    });
+
+                    $(".swal2-confirm").click(function() {
+                        navigator.clipboard.writeText(ordenCompra);
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 2500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: `¡Orden de compra copiado! N°${ordenCompra}`
+                        })
                     });
 
                     //* AGREGANDO SECCIÓN DE PRODUCTOS COMPRADOS
@@ -266,7 +277,6 @@ $(window).on("load", function() {
                     if (comprasTotales.length < 5) {
                         let compra = [];
                         let compraLocalStorage = JSON.parse(localStorage.getItem("carrito"));
-                        localStorage.setItem("ultima-compra", localStorage.getItem("carrito"));
 
                         compra.push(ordenCompra);
 
@@ -291,13 +301,12 @@ $(window).on("load", function() {
 
                         $(".busqueda").on("input", function() {
                             if (parseInt($(".busqueda").val()) === parseInt(contenedorProductosComprados.id)) {
-                                $(".no-encontrado-contenedor").addClass("d-none");
                                 contenedorProductosComprados.classList.remove("d-none");
                             } else {
-                                $(".no-encontrado-orden-compra").text($(".busqueda").val());
                                 contenedorProductosComprados.classList.add("d-none");
                             }
                         });
+
 
                         //? RENDERIZADO DE PRODUCTOS COMPRADOS
 

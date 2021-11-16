@@ -2424,6 +2424,11 @@ body .cabecera .nav__lista {
 
 /* COMPRA */
 
+.recuerde {
+    font-size: 2.2rem;
+    color: #7d1c0d;
+}
+
 .titulo-en-compra {
     font-size: 2.4rem;
     display: flex;
@@ -2463,6 +2468,10 @@ body .cabecera .nav__lista {
 
 .no-encontrado-orden-compra {
     font-size: 1.8rem;
+}
+
+.boton-pegar {
+    font-size: 2rem;
 }
 
 
