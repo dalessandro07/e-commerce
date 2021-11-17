@@ -7,6 +7,18 @@ let passwordUsuario = localStorage.getItem("password");
 
 let contenedor = document.createElement("div");
 
+function sinUsuario() {
+    let noIngreso = document.createElement("a");
+    noIngreso.setAttribute("class", "titulo-productos-vacio");
+    noIngreso.setAttribute("href", "registro.html");
+    noIngreso.innerText = "¡Inicie sesión o regístrese para comprar!";
+    contenedor.setAttribute(
+        "class",
+        "contenedor-bienvenida d-flex w-100 justify-content-center"
+    );
+    contenedor.appendChild(noIngreso);
+}
+
 if (nombreUsuario) {
     contenedor.setAttribute(
         "class",
@@ -24,15 +36,7 @@ if (nombreUsuario) {
     contenedor.appendChild(bienvenidaUsuario);
     contenedor.appendChild(horaDeEntrada);
 } else {
-    let noIngreso = document.createElement("a");
-    noIngreso.setAttribute("class", "titulo-productos-vacio");
-    noIngreso.setAttribute("href", "registro.html");
-    noIngreso.innerText = "¡Inicie sesión o regístrese para comprar!";
-    contenedor.setAttribute(
-        "class",
-        "contenedor-bienvenida d-flex w-100 justify-content-center"
-    );
-    contenedor.appendChild(noIngreso);
+    sinUsuario();
 }
 
 seccionBienvenida.appendChild(contenedor);
@@ -269,16 +273,7 @@ class Usuario {
                 //* SECCION SUPERIOR BIENVENIDA
 
                 $(".titulo__fecha").remove();
-                let noIngreso = document.createElement("a");
-                noIngreso.setAttribute("class", "titulo-productos-vacio");
-                noIngreso.setAttribute("href", "registro.html");
-                noIngreso.innerText = "¡Inicie sesión o regístrese para comprar!";
-                contenedor.setAttribute(
-                    "class",
-                    "contenedor-bienvenida d-flex w-100 justify-content-center"
-                );
-                contenedor.appendChild(noIngreso);
-                seccionBienvenida.appendChild(contenedor);
+                sinUsuario();
             }
         });
     }
