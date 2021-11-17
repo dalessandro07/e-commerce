@@ -225,7 +225,7 @@ class Usuario {
         $("#cambio-pass").on("input", function() {
             let nuevaPass = $("#cambio-pass").val();
             $("#cambiar-password").one('click', function() {
-                if ((nuevaPass.length > 8) && (nuevaPass !== $("#cambio-user").val()) && (!nuevaPass.includes(" ")) && (nuevaPass.match(caracteresEspeciales))) {
+                if ((nuevaPass.length > 8) && (nuevaPass !== $("#cambio-user").val()) && (!nuevaPass.includes(" ")) && (!nuevaPass.match(caracteresEspeciales))) {
                     localStorage.setItem("password", nuevaPass);
                     $("#error-password").addClass("d-none");
                     $("#correcto-password").removeClass("d-none");
