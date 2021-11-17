@@ -20,7 +20,11 @@ $(window).on("load", function() {
 
     if (nombreUsuario) {
 
-        $(".boton-agregar-al-carro").on("click", identificarProducto);
+        let boton = document.getElementsByClassName("boton-agregar-al-carro");
+
+        for (const btn of boton) {
+            btn.addEventListener("click", identificarProducto);
+        }
 
         function identificarProducto(e) {
 
