@@ -2600,6 +2600,11 @@ body .cabecera .nav__lista {
     margin: 1.1rem;
 }
 
+#cambio-pass,
+#cambio-user {
+    width: 100%;
+}
+
 .nueva__password--estilo {
     font-size: 2rem;
     border: none;

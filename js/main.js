@@ -255,7 +255,6 @@ class Usuario {
             if (result.isConfirmed) {
                 localStorage.removeItem("password");
                 localStorage.removeItem("username");
-                window.location.reload();
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -263,6 +262,23 @@ class Usuario {
                     showConfirmButton: false,
                     timer: 1500
                 })
+
+                $("#cambio-user").val("");
+                $("#cambio-pass").val("");
+
+                //* SECCION SUPERIOR BIENVENIDA
+
+                $(".titulo__fecha").remove();
+                let noIngreso = document.createElement("a");
+                noIngreso.setAttribute("class", "titulo-productos-vacio");
+                noIngreso.setAttribute("href", "registro.html");
+                noIngreso.innerText = "¡Inicie sesión o regístrese para comprar!";
+                contenedor.setAttribute(
+                    "class",
+                    "contenedor-bienvenida d-flex w-100 justify-content-center"
+                );
+                contenedor.appendChild(noIngreso);
+                seccionBienvenida.appendChild(contenedor);
             }
         });
     }

@@ -164,28 +164,28 @@ $(window).on("load", function() {
 
             for (const producto of carrito) {
                 contenedorProducto.innerHTML = `
-                <img class="imagen-producto" src=${producto.imagen}>
-                <div class="d-flex flex-column justify-content-center align-items-center w-50 contenedor-tps">
-                    <h3 class="text-center titulo-en-carrito">${producto.titulo}</h3>
-                    <div>
-                    <b class="precio2">Precio: S/</b><b class="precio2 precio-producto-en-carrito">${producto.precio}</b><br>
-                    </div>
-                    <div>
-                    <b class="stock2">Stock:</b><b class="stock2 stock-producto-numero">${producto.stock}</b>
-                    </div>
-                </div>
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-5">
-                <label class="cantidad">Cantidad:</label>
-                    <form class="d-flex flex-column form-cantidad justify-content-center align-items-center align-content-around">
-                        <input class="btn cantidad-productos" type="number" max="${producto.stock}" value="1" disabled>
-                        <div class="d-flex justify-content-around w-75">
-                            <button class="btn btn-success" id="aumentar" type="button">+</button>
-                            <button class="btn btn-danger" id="restar" type="button">-</button>
+                    <img class="imagen-producto" src=${producto.imagen}>
+                    <div class="d-flex flex-column justify-content-center align-items-center w-50 contenedor-tps">
+                        <h3 class="text-center titulo-en-carrito">${producto.titulo}</h3>
+                        <div>
+                        <b class="precio2">Precio: S/</b><b class="precio2 precio-producto-en-carrito">${producto.precio}</b><br>
                         </div>
-                    </form>
-                </div>
-                
-            `;
+                        <div>
+                        <b class="stock2">Stock:</b><b class="stock2 stock-producto-numero">${producto.stock}</b>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-5">
+                    <label class="cantidad">Cantidad:</label>
+                        <form class="d-flex flex-column form-cantidad justify-content-center align-items-center align-content-around">
+                            <input class="btn cantidad-productos" type="number" max="${producto.stock}" value="1" disabled>
+                            <div class="d-flex justify-content-around w-75">
+                                <button class="btn btn-success" id="aumentar" type="button">+</button>
+                                <button class="btn btn-danger" id="restar" type="button">-</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                `;
             }
 
             $(".offcanvas-body").prepend(contenedorProducto);
@@ -195,16 +195,16 @@ $(window).on("load", function() {
             let contenedorTotal = document.createElement("div");
 
             contenedorTotal.innerHTML = `
-            <div class="d-flex justify-content-between contenedor-total">
-            <div class="d-flex align-center total-completo">
-                Total: S/<b id="numero-total">0</b>
-            </div>
-            <div class="finalizar-compra">
-                <button class="btn btn-success btn-comprar-final" id="comprar">Comprar</button>
-                <button class="btn btn-danger btn-comprar-final" id="vaciar">Vaciar</button>
+                <div class="d-flex justify-content-between contenedor-total">
+                <div class="d-flex align-center total-completo">
+                    Total: S/<b id="numero-total">0</b>
                 </div>
-                </div>
-                `;
+                <div class="finalizar-compra">
+                    <button class="btn btn-success btn-comprar-final" id="comprar">Comprar</button>
+                    <button class="btn btn-danger btn-comprar-final" id="vaciar">Vaciar</button>
+                    </div>
+                    </div>
+                    `;
 
             carritoContenedor[0].appendChild(contenedorTotal);
 
@@ -313,13 +313,13 @@ $(window).on("load", function() {
                             let productoComprado = document.createElement("div");
                             productoComprado.innerHTML =
                                 `<div class="d-flex justify-content-around contenedor-principal-compra">
-                                    <img class="imagen-producto" src="${compra[i].imagen}">
-                                    <h3 class="titulo-en-compra text-center">${compra[i].titulo}</h3>
-                                    <div class="d-flex flex-column text-center justify-content-center align-content-center">
-                                        <p class="texto-compra">Unidades compradas: <b class="texto-compra">${compra[i].cantidad}</b></p>
-                                        <p class="texto-compra2">Total: S/${compra[i].precio * compra[i].cantidad}.00</p>
-                                    </div>
-                                </div>`;
+                                        <img class="imagen-producto" src="${compra[i].imagen}">
+                                        <h3 class="titulo-en-compra text-center">${compra[i].titulo}</h3>
+                                        <div class="d-flex flex-column text-center justify-content-center align-content-center">
+                                            <p class="texto-compra">Unidades compradas: <b class="texto-compra">${compra[i].cantidad}</b></p>
+                                            <p class="texto-compra2">Total: S/${compra[i].precio * compra[i].cantidad}.00</p>
+                                        </div>
+                                    </div>`;
                             contenedorProductosComprados.appendChild(productoComprado);
                         }
 
