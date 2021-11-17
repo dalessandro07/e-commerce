@@ -5,13 +5,14 @@
 botonRegistrar.addEventListener("click", validarRegistro);
 
 function validarRegistro(e) {
+    let caracteresEspeciales = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
     let usernameRegistrado = usernameRegistro.value;
     let passwordRegistrado = passwordRegistro.value;
 
     if (isNaN(usernameRegistrado) && isNaN(passwordRegistrado)) {
         if ((usernameRegistrado !== passwordRegistrado)) {
 
-            if (((usernameRegistrado.length > 5) && (!usernameRegistrado.includes(" "))) && ((passwordRegistrado.length > 5) && (!passwordRegistrado.includes(" ")))) {
+            if (((usernameRegistrado.length > 6) && (!usernameRegistrado.includes(" ")) && (!usernameRegistrado.match(caracteresEspeciales))) && ((passwordRegistrado.length > 6) && (!passwordRegistrado.includes(" ")) && (!passwordRegistrado.match(caracteresEspeciales)))) {
                 e.preventDefault();
 
                 //* ALMACENANDO USUARIO Y CONTRASEÑA EN EL LOCAL STORAGE
@@ -33,7 +34,7 @@ function validarRegistro(e) {
             } else {
                 e.preventDefault();
 
-                contenedorError.innerHTML = "<div class='container-error'><b class='error' style='color:red;'>* ¡El nombre de usuario y la contraseña no pueden incluir espacios en blanco!</b></div>"
+                contenedorError.innerHTML = "<div class='container-error'><b class='error' style='color:red;'>* ¡El nombre de usuario y la contraseña deben incluir más de 6 caracteres y no pueden incluir espacios en blanco ni caracteres especiales!</b></div>"
                 document.getElementById("contenedor-formulario").appendChild(contenedorError);
             }
 

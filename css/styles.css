@@ -2611,5 +2611,11 @@ ul {
     padding: 0;
 }
 
+@media screen and (max-width: 576px) {
+    .miUsuario {
+        padding: 0;
+    }
+}
+
 
 /*# sourceMappingURL=styles.css.map */

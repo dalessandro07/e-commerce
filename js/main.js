@@ -216,6 +216,7 @@ class Usuario {
         this.password = password;
     }
     cambiarPassword() {
+        let caracteresEspeciales = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
         $("#cambio-pass").removeAttr("disabled");
         $("#cambio-pass").removeAttr("value");
@@ -224,7 +225,7 @@ class Usuario {
         $("#cambio-pass").on("input", function() {
             let nuevaPass = $("#cambio-pass").val();
             $("#cambiar-password").one('click', function() {
-                if ((nuevaPass.length > 8) && (nuevaPass !== $("#cambio-user").val())) {
+                if ((nuevaPass.length > 8) && (nuevaPass !== $("#cambio-user").val()) && (!nuevaPass.includes(" ")) && (nuevaPass.match(caracteresEspeciales))) {
                     localStorage.setItem("password", nuevaPass);
                     $("#error-password").addClass("d-none");
                     $("#correcto-password").removeClass("d-none");
@@ -257,8 +258,8 @@ class Usuario {
                 window.location.reload();
                 Swal.fire({
                     position: 'center',
-                    icon: 'warning',
-                    title: '¡Tu cuenta ha sido borrada!',
+                    icon: 'success',
+                    title: '¡Tu cuenta fue borrada con éxito!',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -284,7 +285,7 @@ if (nombreUsuario) {
     <div class="p-3 d-flex flex-column align-content-center justify-content-center">
         <label class="password-usuario">Contraseña:</label>
         <input type="text" class="m-3 nombre-usuario2" id="cambio-pass" value="${usuario1.password}" disabled>
-        <b class='error d-none' id="error-password" style='color:#dc3545;'>* ¡La contraseña debe tener más de 8 caracteres y debe ser diferente al nombre de usuario!</b>
+        <b class='error d-none' id="error-password" style='color:#dc3545;'>* ¡La contraseña es inválida inténtelo de nuevo!</b>
         <b class='error d-none' id="correcto-password" style='color:#198754;'>* ¡La contraseña se cambió con éxito!</b>
     </div>
     <div class="contenedor-botones d-flex justify-content-around">
