@@ -2,7 +2,7 @@
 
 let carrito = [];
 let comprasTotales = [];
-
+let contenedorTotal = document.createElement("div");
 class Producto {
     constructor(titulo, precio, stock, imagen, id, cantidad) {
         this.titulo = titulo;
@@ -17,6 +17,7 @@ class Producto {
 //* EVENTO Y FUNCIONES DEL CARRITO
 
 $(window).on("load", function() {
+
     if (nombreUsuario) {
 
         $(".boton-agregar-al-carro").on("click", identificarProducto);
@@ -68,7 +69,7 @@ $(window).on("load", function() {
                 });
                 return;
             }
-        }
+        };
 
         function agregarProductoAlCarrito(titulo, precio, stock, imagen, id, cantidad) {
             const producto = new Producto(titulo, precio, stock, imagen, id, cantidad);
@@ -78,11 +79,6 @@ $(window).on("load", function() {
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
             mostrarProductoEnCarrito();
-
-            let contador = document.getElementById("contador-productos");
-            contador.innerText = carrito.length;
-
-            calcularTotal();
 
             $("#aumentar").click(function(e) {
                 let botonSeleccionado = e.target;
@@ -152,7 +148,7 @@ $(window).on("load", function() {
                 localStorage.setItem("carrito", JSON.stringify(carrito));
             });
 
-        }
+        };
 
         function mostrarProductoEnCarrito() {
             let contenedorProducto = document.createElement("div");
@@ -176,38 +172,27 @@ $(window).on("load", function() {
                     </div>
                     <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-5">
                     <label class="cantidad">Cantidad:</label>
-                        <form class="d-flex flex-column form-cantidad justify-content-center align-items-center align-content-around">
-                            <input class="btn cantidad-productos" type="number" max="${producto.stock}" value="1" disabled>
-                            <div class="d-flex justify-content-around w-75">
-                                <button class="btn btn-success" id="aumentar" type="button">+</button>
-                                <button class="btn btn-danger" id="restar" type="button">-</button>
-                            </div>
-                        </form>
+                    <form class="d-flex flex-column form-cantidad justify-content-center align-items-center align-content-around">
+                    <input class="btn cantidad-productos" type="number" max="${producto.stock}" value="1" disabled>
+                    <div class="d-flex justify-content-around w-75">
+                    <button class="btn btn-success" id="aumentar" type="button">+</button>
+                    <button class="btn btn-danger" id="restar" type="button">-</button>
+                    </div>
+                    </form>
                     </div>
                     
-                `;
+                    `;
             }
 
+            let contador = document.getElementById("contador-productos");
+            contador.innerText = carrito.length;
+
             $(".offcanvas-body").prepend(contenedorProducto);
-        }
 
-        function crearSeccionTotal() {
-            let contenedorTotal = document.createElement("div");
+            calcularTotal();
+        };
 
-            contenedorTotal.innerHTML = `
-                <div class="d-flex justify-content-between contenedor-total">
-                <div class="d-flex align-center total-completo">
-                    Total: S/<b id="numero-total">0</b>
-                </div>
-                <div class="finalizar-compra">
-                    <button class="btn btn-success btn-comprar-final" id="comprar">Comprar</button>
-                    <button class="btn btn-danger btn-comprar-final" id="vaciar">Vaciar</button>
-                    </div>
-                    </div>
-                    `;
-
-            carritoContenedor[0].appendChild(contenedorTotal);
-
+        function finalizar() {
             //* BOTONES DEL CARRITO
 
             $("#vaciar").click(function() {
@@ -276,6 +261,7 @@ $(window).on("load", function() {
                     if (comprasTotales.length < 5) {
                         let compra = [];
                         let compraLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+                        console.log("🚀 - compraLocalStorage", compraLocalStorage);
 
                         compra.push(ordenCompra);
 
@@ -284,6 +270,7 @@ $(window).on("load", function() {
                         }
 
                         comprasTotales.push(compra);
+                        localStorage.setItem("compras", JSON.stringify(comprasTotales));
 
                         //? FILTROS PARA ENCONTRAR COMPRA
 
@@ -299,7 +286,7 @@ $(window).on("load", function() {
                         console.log(ordenCompra);
 
                         $(".busqueda").on("input", function() {
-                            if (parseInt($(".busqueda").val()) === parseInt(contenedorProductosComprados.id)) {
+                            if ((contenedorProductosComprados.id).includes(($(".busqueda").val()))) {
                                 contenedorProductosComprados.classList.remove("d-none");
                             } else {
                                 contenedorProductosComprados.classList.add("d-none");
@@ -313,13 +300,13 @@ $(window).on("load", function() {
                             let productoComprado = document.createElement("div");
                             productoComprado.innerHTML =
                                 `<div class="d-flex justify-content-around contenedor-principal-compra">
-                                        <img class="imagen-producto" src="${compra[i].imagen}">
-                                        <h3 class="titulo-en-compra text-center">${compra[i].titulo}</h3>
-                                        <div class="d-flex flex-column text-center justify-content-center align-content-center">
-                                            <p class="texto-compra">Unidades compradas: <b class="texto-compra">${compra[i].cantidad}</b></p>
-                                            <p class="texto-compra2">Total: S/${compra[i].precio * compra[i].cantidad}.00</p>
-                                        </div>
-                                    </div>`;
+                                                    <img class="imagen-producto" src="${compra[i].imagen}">
+                                                    <h3 class="titulo-en-compra text-center">${compra[i].titulo}</h3>
+                                                    <div class="d-flex flex-column text-center justify-content-center align-content-center">
+                                                        <p class="texto-compra">Unidades compradas: <b class="texto-compra">${compra[i].cantidad}</b></p>
+                                                        <p class="texto-compra2">Total: S/${compra[i].precio * compra[i].cantidad}.00</p>
+                                                    </div>
+                                                </div>`;
                             contenedorProductosComprados.appendChild(productoComprado);
                         }
 
@@ -345,7 +332,25 @@ $(window).on("load", function() {
                     $("#numero-total").text("0");
                 }
             });
-        }
+        };
+
+        function crearSeccionTotal() {
+            contenedorTotal.innerHTML = `
+                <div class="d-flex justify-content-between contenedor-total">
+                <div class="d-flex align-center total-completo">
+                    Total: S/<b id="numero-total">0</b>
+                </div>
+                <div class="finalizar-compra">
+                    <button class="btn btn-success btn-comprar-final" id="comprar">Comprar</button>
+                    <button class="btn btn-danger btn-comprar-final" id="vaciar">Vaciar</button>
+                    </div>
+                    </div>
+                    `;
+
+            carritoContenedor[0].appendChild(contenedorTotal);
+
+            finalizar();
+        };
 
         crearSeccionTotal();
 
@@ -358,7 +363,8 @@ $(window).on("load", function() {
                 totalFinal += parseInt(precioProducto[i].textContent);
             }
             $("#numero-total").text(totalFinal);
-        }
+        };
 
     }
+
 });

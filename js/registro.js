@@ -47,7 +47,7 @@ function validarRegistro(e) {
     } else {
         e.preventDefault();
 
-        contenedorError.innerHTML = "<div class='container-error'><b class='error' style='color:red;'>* ¡El nombre de usuario o la contraseña no pueden ser sólo números!</b></div>"
+        contenedorError.innerHTML = "<div class='container-error'><b class='error' style='color:red;'>* ¡El nombre de usuario o la contraseña no pueden estar vacíos o ser sólo números!</b></div>"
         document.getElementById("contenedor-formulario").appendChild(contenedorError);
     }
 
