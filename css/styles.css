@@ -2529,8 +2529,8 @@ body .cabecera .nav__lista {
         max-width: 50%;
         left: 0;
     }
-    body .cabecera .cabecera__nav {
-        justify-content: center;
+    body .cabecera .navbar {
+        text-align: center;
     }
 }
 
