@@ -282,7 +282,7 @@ class Usuario {
     }
 }
 
-if (nombreUsuario) {
+if (localStorage.getItem("username")) {
     $("#sin-cuenta").hide();
 
     const usuario1 = new Usuario(`${nombreUsuario}`, `${passwordUsuario}`);

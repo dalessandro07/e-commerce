@@ -18,7 +18,7 @@ class Producto {
 
 $(window).on("load", function() {
 
-    if (nombreUsuario) {
+    if (localStorage.getItem("username")) {
 
         let boton = document.getElementsByClassName("boton-agregar-al-carro");
 
