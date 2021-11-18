@@ -19,7 +19,7 @@ function sinUsuario() {
     contenedor.appendChild(noIngreso);
 }
 
-if (nombreUsuario) {
+if (localStorage.getItem("username")) {
     contenedor.setAttribute(
         "class",
         "contenedor-bienvenida d-flex w-100 justify-content-between"
