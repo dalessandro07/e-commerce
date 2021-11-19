@@ -2,40 +2,38 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La Casa De Las Plantas Perú es una tienda online de jardinería y productos artesanales para tu jardín y hogar">
-    <meta name="keywords" content="tienda de jardinería, la casa de las plantas, jardinería, macetas, plantas, floreros, orquídeas, jardines, la casa de las plantas perú, la importancia de las plantas en casa">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="La Casa De Las Plantas Perú es una tienda online de jardinería y productos artesanales para tu jardín y hogar" />
+    <meta name="keywords" content="tienda de jardinería, la casa de las plantas, jardinería, macetas, plantas, floreros, orquídeas, jardines, la casa de las plantas perú, la importancia de las plantas en casa" />
     <meta name="google-site-verification" content="tz3IOqXokIRA-poEwjCm8BX3Kj6D19M9FAIFM6CCLYc" />
     <!-- TITULO -->
     <title>Inicio - La Casa De Las Plantas Perú | Tienda Online</title>
     <!-- ICONO DE LA PESTAÑA - FAVICON -->
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
     <!-- AOS ANIMACIONES CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- BOOTSTRAP CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- NUESTRO CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css" />
     <!-- FUENTES FONT AWESOME -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-
     <!-- inicio header + nav -->
 
     <header class="row cabecera">
-
         <!-- inicio menu de navegacion -->
 
         <nav class="cabecera__nav navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="navbar-brand logo">
-                    <a href="index.html"><img class="cabecera__logo" src="./assets/img/logo.png" alt="logo"></a>
+                    <a href="index.html"><img class="cabecera__logo" src="./assets/img/logo.png" alt="logo" /></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,6 +44,30 @@
                             <a class="nav-link" href="pages/productos.html">Productos</a>
                         </li>
                         <li class="nav-item lista__item">
+                            <div class="dropdown">
+                                <a href="./pages/servicios.html" class="servicios--style" id="seccionActiva">Servicios</a>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="./pages/servicios.html#mapa">Delivery</a></li>
+                                    <li><a class="dropdown-item" href="./pages/servicios.html#asesoria">Asesoría para el
+                                            cuidado
+                                            de sus
+                                            plantas <span class="badge bg-secondary">¡Nuevo!</span></a></li>
+                                    <li><a class="dropdown-item" href="./pages/servicios.html#design">Diseño de jardines
+                                            e
+                                            interiores
+                                            <span class="badge bg-secondary">¡Nuevo!</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item lista__item">
+                            <a class="nav-link" href="pages/sobre-nosotros.html">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item lista__item">
+                            <a class="nav-link" href="pages/contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item lista__item">
                             <a class="nav-link" href="pages/registro.html">Registrarse</a>
                         </li>
                     </ul>
@@ -54,7 +76,6 @@
         </nav>
 
         <!-- cierre menu de navegacion -->
-
     </header>
 
     <!-- cierre header + nav -->
@@ -62,10 +83,11 @@
     <!-- inicio contenido -->
 
     <section class="row principal">
-
         <article data-aos="zoom-in" class="banner col-12 col-md-12 col-lg-12 css-typing">
-            <h1 class="titulo__banner" id="titulo__banner--size">La Casa De Las Plantas Perú</h1>
-            <img class="banner__imagen" src="./assets/img/banner-principal.jpg" alt="banner-principal">
+            <h1 class="titulo__banner" id="titulo__banner--size">
+                La Casa De Las Plantas Perú
+            </h1>
+            <img class="banner__imagen" src="./assets/img/banner-principal.jpg" alt="banner-principal" />
         </article>
 
         <article class="titulo col-12 col-md-12 col-lg-12">
@@ -73,20 +95,23 @@
         </article>
 
         <section data-aos="zoom-in" class="carousel row carousel-contenedor">
-
             <div class="carousel__texto col-12 col-lg-5">
-                <h3 class="carousel__titulo">¡Las mejores ofertas del mes sólo en La Casa De Las Plantas Perú!</h3>
+                <h3 class="carousel__titulo">
+                    ¡Las mejores ofertas del mes sólo en La Casa De Las Plantas Perú!
+                </h3>
                 <div class="envio">
-                    <strong class="envio__a">ENVÍO GRATIS A TODO EL PERÚ</strong> <b class="envio__b">POR COMPRAS
-                        SUPERIORES A S/100.00</b>
+                    <strong class="envio__a">ENVÍO GRATIS A TODO EL PERÚ</strong>
+                    <b class="envio__b">POR COMPRAS SUPERIORES A S/100.00</b>
                 </div>
                 <div class="carousel__parrafo">
-                    <p class="carousel__p">¡Se acaban! Aproveche el 3X1 en <a class="carousel__enlace" href="./pages/productos.html">plantas ornamentales y hortalizas</a>, y sólo hasta fin de mes 40% de descuento en <a class="carousel__enlace" href="/pages/productos.html">macetas de
-                            plástico</a>. ¡No dejes pasar esta gran oportunidad de tener tu hogar decorado y ambientado!
+                    <p class="carousel__p">
+                        ¡Se acaban! Aproveche el 3X1 en
+                        <a class="carousel__enlace" href="./pages/ingreso.html">plantas ornamentales y hortalizas</a>, y sólo hasta fin de mes 40% de descuento en
+                        <a class="carousel__enlace" href="/pages/ingreso.html">macetas de plástico</a>. ¡No dejes pasar esta gran oportunidad de tener tu hogar decorado y ambientado!
                         <strong class="compra-ya">¡COMPRA YA!</strong><b class="tyc">Aplican T&C.</b>
                     </p>
                     <button class="btn btn-success">
-                        <a class="enlace__productos" href="./pages/productos.html" target="_blank">Ver Productos</a>
+                        <a class="enlace__productos" href="./pages/ingreso.html" target="_blank">Ver Productos</a>
                     </button>
                 </div>
             </div>
@@ -94,13 +119,13 @@
             <div id="carouselExampleControls" class="carousel slide carousel-slides col-12 col-md-7 col-lg-7" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./assets/img/macetas-carousel-2.jpg" class="d-block w-100" alt="macetas">
+                        <img src="./assets/img/macetas-carousel-2.jpg" class="d-block w-100" alt="macetas" />
                     </div>
                     <div class="carousel-item">
-                        <img src="./assets/img/orquideas-carousel-1.jpg" class="d-block w-100" alt="orquideas">
+                        <img src="./assets/img/orquideas-carousel-1.jpg" class="d-block w-100" alt="orquideas" />
                     </div>
                     <div class="carousel-item">
-                        <img src="./assets/img/sucucactus-carousel-1.jpg" class="d-block w-100" alt="suculentas y cactus">
+                        <img src="./assets/img/sucucactus-carousel-1.jpg" class="d-block w-100" alt="suculentas y cactus" />
                     </div>
                     <button class="carousel-control-prev carousel-boton" data-bs-target="#carouselExampleControls" type="button" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -112,17 +137,13 @@
                     </button>
                 </div>
             </div>
-
         </section>
-
     </section>
 
     <!-- inicio sección noticias -->
 
     <section class="container-fluid" id="noticias">
-
         <div class="row">
-
             <div class="subtitulo col-12 col-md-12 col-lg-12">
                 <h3 class="titulo__h3">NOTICIAS</h3>
             </div>
@@ -131,7 +152,7 @@
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/0ksX" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/plantas-1.jpg" alt="plantas">
+                            <img class="seccion__imagen--style" src="./assets/img/plantas-1.jpg" alt="plantas" />
                         </a>
                     </div>
                     <div class="seccion__texto">
@@ -139,8 +160,9 @@
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__titulo">
                             Cuidar plantas reduce el estrés
                         </a>
-                        <p class="seccion__parrafo">Un estudio reveló que media hora diaria dedicada a cuidar plantas reduce significativamente los niveles de estrés, <b class="keyword">nos ayuda a
-                                desconectar</b>, aumentan nuestra autoestima y capacidad de organización. Alivian tensiones y nos hacen compañía.
+                        <p class="seccion__parrafo">
+                            Un estudio reveló que media hora diaria dedicada a cuidar plantas reduce significativamente los niveles de estrés,
+                            <b class="keyword">nos ayuda a desconectar</b>, aumentan nuestra autoestima y capacidad de organización. Alivian tensiones y nos hacen compañía.
                         </p>
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -149,7 +171,7 @@
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/fN5L" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/plantas-en-casa.jpg" alt="plantas">
+                            <img class="seccion__imagen--style" src="./assets/img/plantas-en-casa.jpg" alt="plantas" />
                         </a>
                     </div>
                     <div class="seccion__texto">
@@ -157,22 +179,22 @@
                         <a href="https://www.t.ly/fN5L" target="_blank" class="seccion__titulo">
                             Las plantas reducen el ruido
                         </a>
-                        <p class="seccion__parrafo">Ciertas plantas pueden reducir el ruido. Los hogares son más equilibrados y tranquilos cuando tienen plantas porque éstas <b class="keyword">absorben el
-                                ruido</b> y pueden reducirlo ligeramente. Su aportación es pequeña pero importante.
+                        <p class="seccion__parrafo">
+                            Ciertas plantas pueden reducir el ruido. Los hogares son más equilibrados y tranquilos cuando tienen plantas porque éstas
+                            <b class="keyword">absorben el ruido</b> y pueden reducirlo ligeramente. Su aportación es pequeña pero importante.
                         </p>
                         <a href="https://www.t.ly/fN5L" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
                 </article>
             </div>
 
-            <div class="separacion">
-            </div>
+            <div class="separacion"></div>
 
             <div class="row" data-aos="fade-right">
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/0ksX" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/cuidando-plantas-del-jardin.jpg" alt="plantas">
+                            <img class="seccion__imagen--style" src="./assets/img/cuidando-plantas-del-jardin.jpg" alt="plantas" />
                         </a>
                     </div>
                     <div class="seccion__texto">
@@ -180,8 +202,9 @@
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__titulo">
                             Nos enseñan a adquirir responsabilidades
                         </a>
-                        <p class="seccion__parrafo">Tener plantas que cuidar es una hermosa y muy grande responsabilidad, en cierta medida <b class="keyword">dependen de nosotros para crecer</b> y no marchitarse muy pronto. Mira como cultivar plantas te ayuda y te enseña a ser más
-                            responsable.
+                        <p class="seccion__parrafo">
+                            Tener plantas que cuidar es una hermosa y muy grande responsabilidad, en cierta medida
+                            <b class="keyword">dependen de nosotros para crecer</b> y no marchitarse muy pronto. Mira como cultivar plantas te ayuda y te enseña a ser más responsable.
                         </p>
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -190,7 +213,7 @@
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/pmf1" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/elegir-macetas-plastico-ceramica.jpg" alt="plantas">
+                            <img class="seccion__imagen--style" src="./assets/img/elegir-macetas-plastico-ceramica.jpg" alt="plantas" />
                         </a>
                     </div>
                     <div class="seccion__texto">
@@ -198,7 +221,9 @@
                         <a href="https://www.t.ly/qYuW" target="_blank" class="seccion__titulo">
                             ¿Macetas de plástico o de cerámica?
                         </a>
-                        <p class="seccion__parrafo">Puede que sólo nos fijemos en el exterior a la hora de escoger una maceta para nuestras plantas, pero mucho cuidado, porque elegir macetas de plástico o de cerámica <b class="keyword">no debe hacerse únicamente por motivos estéticos</b>.
+                        <p class="seccion__parrafo">
+                            Puede que sólo nos fijemos en el exterior a la hora de escoger una maceta para nuestras plantas, pero mucho cuidado, porque elegir macetas de plástico o de cerámica
+                            <b class="keyword">no debe hacerse únicamente por motivos estéticos</b>.
                         </p>
                         <a href="https://www.t.ly/qYuW" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -206,21 +231,22 @@
             </div>
 
             <div class="row mas-noticias d-none" data-aos="fade-right">
-                <div class="separacion">
-                </div>
+                <div class="separacion"></div>
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/jBFi" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/techos-verdes.jpeg" alt="plantas">
+                            <img class="seccion__imagen--style" src="./assets/img/techos-verdes.jpeg" alt="plantas" />
                         </a>
                     </div>
                     <div class="seccion__texto">
                         <strong class="seccion__etiqueta">Plantas</strong>
                         <a href="https://www.t.ly/jBFi" target="_blank" class="seccion__titulo">
-                            Techos verdes: Más que estética, una ayuda ambiental de climatización
+                            Techos verdes: Más que estética, una ayuda ambiental de
+                            climatización
                         </a>
-                        <p class="seccion__parrafo">En algunas zonas de Lima hay cada vez más edificaciones con techos verdes: jardines, huertos y plantas sembradas en azoteas. <b class="keyword">Este panorama
-                                contrasta con techos en mal estado</b>, con basura y desperdicios, que abundan en la urbe.
+                        <p class="seccion__parrafo">
+                            En algunas zonas de Lima hay cada vez más edificaciones con techos verdes: jardines, huertos y plantas sembradas en azoteas.
+                            <b class="keyword">Este panorama contrasta con techos en mal estado</b>, con basura y desperdicios, que abundan en la urbe.
                         </p>
                         <a href="https://www.t.ly/jBFi" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -229,7 +255,7 @@
                 <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="seccion__imagen">
                         <a href="https://www.t.ly/Cvup" target="_blank">
-                            <img class="seccion__imagen--style" src="./assets/img/projar-sustrato.jpg" alt="sustratos">
+                            <img class="seccion__imagen--style" src="./assets/img/projar-sustrato.jpg" alt="sustratos" />
                         </a>
                     </div>
                     <div class="seccion__texto">
@@ -237,7 +263,9 @@
                         <a href="https://www.t.ly/Cvup" target="_blank" class="seccion__titulo">
                             Projar desarrolla un sustrato que incorpora Humus de Lombriz
                         </a>
-                        <p class="seccion__parrafo">Llega al mercado el RS8, el sustrato revolucionario de la marca Projar, que <b class="keyword">facilita la evolución radicular hasta un 50% más rápido</b>, ayudando al desarrollo y crecimiento de las plantas durante el trasplante.
+                        <p class="seccion__parrafo">
+                            Llega al mercado el RS8, el sustrato revolucionario de la marca Projar, que
+                            <b class="keyword">facilita la evolución radicular hasta un 50% más rápido</b>, ayudando al desarrollo y crecimiento de las plantas durante el trasplante.
                         </p>
                         <a href="https://www.t.ly/Cvup" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -249,9 +277,7 @@
                     Ver Más
                 </button>
             </div>
-
         </div>
-
     </section>
 
     <!-- cierre sección noticias -->
@@ -261,70 +287,85 @@
     <!-- inicio de footer -->
 
     <footer class="container-fluid footer__main">
-
         <div class="footer__principal row">
-
             <div class="info__page col-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="info__productos">
                     <h4 class="info__titulo">Productos</h4>
                     <ul class="productos__lista">
-                        <li class="lista__item"><a href="./pages/productos.html">Tierras y Sustratos</a></li>
-                        <li class="lista__item"><a href="./pages/productos.html">Plantas ornamentales</a></li>
-                        <li class="lista__item"><a href="./pages/productos.html">Hortalizas</a></li>
-                        <li class="lista__item"><a href="./pages/productos.html">Macetas</a></li>
-                        <li class="lista__item"><a href="./pages/productos.html">Decoraciones para jardín</a></li>
+                        <li class="lista__item">
+                            <a href="./pages/ingreso.html">Tierras y Sustratos</a>
+                        </li>
+                        <li class="lista__item">
+                            <a href="./pages/ingreso.html">Plantas ornamentales</a>
+                        </li>
+                        <li class="lista__item">
+                            <a href="./pages/ingreso.html">Hortalizas</a>
+                        </li>
+                        <li class="lista__item">
+                            <a href="./pages/ingreso.html">Macetas</a>
+                        </li>
+                        <li class="lista__item">
+                            <a href="./pages/ingreso.html">Decoraciones para jardín</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="info__servicios">
                     <h4 class="info__titulo">Servicios</h4>
                     <ul class="servicios__lista">
-                        <li class="lista__item"><a href="./pages/servicios.html#mapa">Delivery</a></li>
-                        <li class="lista__item"><a href="./pages/servicios.html#asesoria">Asesoría personalizada</a>
+                        <li class="lista__item">
+                            <a href="./pages/servicios.html#mapa">Delivery</a>
                         </li>
-                        <li class="lista__item"><a href="./pages/servicios.html#design">Diseño de jardines e
-                                interiores</a></li>
+                        <li class="lista__item">
+                            <a href="./pages/servicios.html#asesoria">Asesoría personalizada</a>
+                        </li>
+                        <li class="lista__item">
+                            <a href="./pages/servicios.html#design">Diseño de jardines e interiores</a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="redes col-12 col-sm-6 col-md-6 col-lg-6">
-
                 <div class="redes__container redes__container--padding text-center">
                     <strong class="titulo__h3">REDES SOCIALES</strong>
                 </div>
 
                 <div class="lista__footer redes__container--padding">
                     <ul class="redes__lista">
-                        <li><a class="wsp" href="https://wa.me/51986307201" target="_blank"><i
+                        <li>
+                            <a class="wsp" href="https://wa.me/51986307201" target="_blank"><i
                                     class="redes__icon fab fa-whatsapp"></i></a>
                         </li>
-                        <li><a class="fb" href="https://facebook.com" target="_blank"><i
+                        <li>
+                            <a class="fb" href="https://facebook.com" target="_blank"><i
                                     class="redes__icon fab fa-facebook" aria-hidden="true"></i></a>
                         </li>
-                        <li><a class="msg" href="https://messenger.com" target="_blank"><i
-                                    class="redes__icon fab fa-facebook-messenger" aria-hidden="true"></i></a></li>
-                        <li><a class="is" href="https://instagram.com" target="_blank"><i
+                        <li>
+                            <a class="msg" href="https://messenger.com" target="_blank"><i
+                                    class="redes__icon fab fa-facebook-messenger" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a class="is" href="https://instagram.com" target="_blank"><i
                                     class="redes__icon fab fa-instagram" aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
-
         </div>
 
         <div class="marca row">
             <div class="copy col-12 col-md-6 col-lg-6">
-                <strong class="copy__titulo">Todos los derechos reservados <b
-                        class="marca__copy">&copy</b></strong><strong class="copy__titulo">2021</strong>
+                <strong class="copy__titulo">Todos los derechos reservados
+                    <b class="marca__copy">&copy</b></strong><strong class="copy__titulo">2021</strong>
             </div>
             <div class="marca__contenedor--padding col-12 col-md-6 col-lg-6">
                 <strong class="marca__titulo marca__titulo--gradient">
-                    Powered by <a href="index.html" class="marca__enlace">Alessandro</a> <b
-                        class="marca__copy">&copy</b>
+                    Powered by
+                    <a href="index.html" class="marca__enlace">Alessandro</a>
+                    <b class="marca__copy">&copy</b>
                 </strong>
             </div>
         </div>
-
     </footer>
 
     <!-- cierre de footer -->
