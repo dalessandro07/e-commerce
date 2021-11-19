@@ -17,10 +17,9 @@ class Producto {
 //* EVENTO Y FUNCIONES DEL CARRITO
 
 window.onload = function() {
+    let boton = document.getElementsByClassName("boton-agregar-al-carro");
+    let contador = document.getElementById("contador-productos");
     if (localStorage.getItem("username")) {
-        let boton = document.getElementsByClassName("boton-agregar-al-carro");
-        let contador = document.getElementById("contador-productos");
-
         for (const btn of boton) {
             btn.addEventListener("click", identificarProducto);
         }

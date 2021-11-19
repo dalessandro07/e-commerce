@@ -1,4 +1,24 @@
 @charset "UTF-8";
+@font-face {
+    font-family: lato;
+    src: url("../assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: poppins;
+    src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: ailerons;
+    src: url("../assets/fonts/ailerons.otf");
+}
+
+@font-face {
+    font-family: ONEDAY;
+    src: url("../assets/fonts/ONEDAY.otf");
+}
+
 
 /* ESTILOS 404 */
 
