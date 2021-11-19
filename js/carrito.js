@@ -21,6 +21,7 @@ window.onload = function() {
     if (localStorage.getItem("username")) {
 
         let boton = document.getElementsByClassName("boton-agregar-al-carro");
+        let contador = document.getElementById("contador-productos");
 
         for (const btn of boton) {
             btn.addEventListener("click", identificarProducto);
@@ -188,7 +189,6 @@ window.onload = function() {
                         `;
             }
 
-            let contador = document.getElementById("contador-productos");
             contador.innerText = carrito.length;
 
             $(".offcanvas-body").prepend(contenedorProducto);
@@ -314,7 +314,6 @@ window.onload = function() {
                             contenedorProductosComprados.appendChild(productoComprado);
                         }
 
-                        let contador = document.getElementById("contador-compras");
                         contador.innerText = comprasTotales.length;
 
                     } else {
