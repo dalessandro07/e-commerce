@@ -38,8 +38,8 @@
                     <a href="index.html"><img class="cabecera__logo" src="./assets/img/logo.png" alt="logo"></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav__lista navbar-nav">
                         <li class="nav-item lista__item">
@@ -74,7 +74,7 @@
 
         <section data-aos="zoom-in" class="carousel row carousel-contenedor">
 
-            <div class="carousel__texto col-12 col-md-5 col-lg-5">
+            <div class="carousel__texto col-12 col-lg-5">
                 <h3 class="carousel__titulo">¡Las mejores ofertas del mes sólo en La Casa De Las Plantas Perú!</h3>
                 <div class="envio">
                     <strong class="envio__a">ENVÍO GRATIS A TODO EL PERÚ</strong> <b class="envio__b">POR COMPRAS
@@ -109,7 +109,7 @@
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Siguiente</span>
-                      </button>
+                    </button>
                 </div>
             </div>
 
@@ -139,8 +139,8 @@
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__titulo">
                             Cuidar plantas reduce el estrés
                         </a>
-                        <p class="seccion__parrafo">Un estudio reveló que media hora diaria dedicada a cuidar plantas reduce significativamente los niveles de estrés, <b class="keyword">nos ayuda a desconectar</b>, aumentan nuestra autoestima y capacidad de organización. Alivian
-                            tensiones y nos hacen compañía.
+                        <p class="seccion__parrafo">Un estudio reveló que media hora diaria dedicada a cuidar plantas reduce significativamente los niveles de estrés, <b class="keyword">nos ayuda a
+                                desconectar</b>, aumentan nuestra autoestima y capacidad de organización. Alivian tensiones y nos hacen compañía.
                         </p>
                         <a href="https://www.t.ly/0ksX" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -157,7 +157,8 @@
                         <a href="https://www.t.ly/fN5L" target="_blank" class="seccion__titulo">
                             Las plantas reducen el ruido
                         </a>
-                        <p class="seccion__parrafo">Ciertas plantas pueden reducir el ruido. Los hogares son más equilibrados y tranquilos cuando tienen plantas porque éstas <b class="keyword">absorben el ruido</b> y pueden reducirlo ligeramente. Su aportación es pequeña pero importante.
+                        <p class="seccion__parrafo">Ciertas plantas pueden reducir el ruido. Los hogares son más equilibrados y tranquilos cuando tienen plantas porque éstas <b class="keyword">absorben el
+                                ruido</b> y pueden reducirlo ligeramente. Su aportación es pequeña pero importante.
                         </p>
                         <a href="https://www.t.ly/fN5L" target="_blank" class="seccion__info">Leer Más...</a>
                     </div>
@@ -204,8 +205,47 @@
                 </article>
             </div>
 
-            <div class="ver-mas">
-                <button type="button" class="btn btn-success">
+            <div class="row mas-noticias d-none" data-aos="fade-right">
+                <div class="separacion">
+                </div>
+                <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="seccion__imagen">
+                        <a href="https://www.t.ly/jBFi" target="_blank">
+                            <img class="seccion__imagen--style" src="./assets/img/techos-verdes.jpeg" alt="plantas">
+                        </a>
+                    </div>
+                    <div class="seccion__texto">
+                        <strong class="seccion__etiqueta">Plantas</strong>
+                        <a href="https://www.t.ly/jBFi" target="_blank" class="seccion__titulo">
+                            Techos verdes: Más que estética, una ayuda ambiental de climatización
+                        </a>
+                        <p class="seccion__parrafo">En algunas zonas de Lima hay cada vez más edificaciones con techos verdes: jardines, huertos y plantas sembradas en azoteas. <b class="keyword">Este panorama
+                                contrasta con techos en mal estado</b>, con basura y desperdicios, que abundan en la urbe.
+                        </p>
+                        <a href="https://www.t.ly/jBFi" target="_blank" class="seccion__info">Leer Más...</a>
+                    </div>
+                </article>
+
+                <article class="noticias__seccion col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="seccion__imagen">
+                        <a href="https://www.t.ly/Cvup" target="_blank">
+                            <img class="seccion__imagen--style" src="./assets/img/projar-sustrato.jpg" alt="sustratos">
+                        </a>
+                    </div>
+                    <div class="seccion__texto">
+                        <strong class="seccion__etiqueta seccion__etiqueta--3">Sustratos</strong>
+                        <a href="https://www.t.ly/Cvup" target="_blank" class="seccion__titulo">
+                            Projar desarrolla un sustrato que incorpora Humus de Lombriz
+                        </a>
+                        <p class="seccion__parrafo">Llega al mercado el RS8, el sustrato revolucionario de la marca Projar, que <b class="keyword">facilita la evolución radicular hasta un 50% más rápido</b>, ayudando al desarrollo y crecimiento de las plantas durante el trasplante.
+                        </p>
+                        <a href="https://www.t.ly/Cvup" target="_blank" class="seccion__info">Leer Más...</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="contenedor-ver-mas">
+                <button type="button" class="btn btn-success" id="ver-mas">
                     Ver Más
                 </button>
             </div>
@@ -299,7 +339,14 @@
     <script src="https://kit.fontawesome.com/0fb5287ed5.js" crossorigin="anonymous"></script>
 
     <!-- BOOTSTRAP JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- MI JS -->
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

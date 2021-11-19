@@ -701,11 +701,11 @@ body::-webkit-scrollbar-track {
 .carousel .carousel__texto .carousel__parrafo .carousel__p {
     text-align: justify;
     padding: 0 2rem 1rem 2rem;
-    font-size: 1.6rem;
+    font-size: 2rem !important;
 }
 
 .carousel .carousel__texto .carousel__parrafo .carousel__p .carousel__enlace {
-    font-size: 1.55rem;
+    font-size: 1.75rem !important;
     font-weight: 600;
     text-decoration: none;
     color: #6e9607;
@@ -725,7 +725,7 @@ body::-webkit-scrollbar-track {
 }
 
 .carousel .carousel__texto .carousel__parrafo .carousel__p .tyc {
-    font-size: 1rem;
+    font-size: 1.3rem !important;
     color: #0009;
 }
 
@@ -799,12 +799,25 @@ body::-webkit-scrollbar-track {
     align-self: flex-start;
     font-size: 1.3rem;
     font-weight: 600;
-    color: #225239;
+    background-color: #225239;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
     margin: 0 2rem;
 }
 
 #noticias .seccion__texto .seccion__etiqueta--2 {
-    color: #9d783b;
+    background-color: #9d783b;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+#noticias .seccion__texto .seccion__etiqueta--3 {
+    background-color: #7d1c0d;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
 }
 
 #noticias .seccion__texto .seccion__info {
@@ -833,7 +846,7 @@ body::-webkit-scrollbar-track {
 }
 
 #noticias .seccion__texto .seccion__parrafo {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-family: 'poppins';
     font-weight: 500;
     text-align: justify;
@@ -842,7 +855,7 @@ body::-webkit-scrollbar-track {
 }
 
 #noticias .seccion__texto .seccion__parrafo .keyword {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #9d783b;
 }
@@ -876,7 +889,7 @@ body::-webkit-scrollbar-track {
     opacity: .85;
 }
 
-#noticias .ver-mas {
+#noticias .contenedor-ver-mas {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -888,7 +901,7 @@ body::-webkit-scrollbar-track {
     margin-top: 5rem;
 }
 
-#noticias .ver-mas .btn {
+#noticias .contenedor-ver-mas .btn {
     background-color: #225239;
     border: none;
     outline: none;
@@ -898,7 +911,7 @@ body::-webkit-scrollbar-track {
     font-size: 1.6rem;
 }
 
-#noticias .ver-mas .btn:hover {
+#noticias .contenedor-ver-mas .btn:hover {
     -webkit-transform: scale(1.15, 1.15);
     transform: scale(1.15, 1.15);
     -webkit-transition: all .4s;

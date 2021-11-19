@@ -16,10 +16,8 @@ class Producto {
 
 //* EVENTO Y FUNCIONES DEL CARRITO
 
-
 window.onload = function() {
     if (localStorage.getItem("username")) {
-
         let boton = document.getElementsByClassName("boton-agregar-al-carro");
         let contador = document.getElementById("contador-productos");
 
@@ -28,15 +26,18 @@ window.onload = function() {
         }
 
         function identificarProducto(e) {
-
             let botonSeleccionado = e.target;
             let productoSeleccionado = botonSeleccionado.closest(".card");
             let padreProducto = productoSeleccionado.parentElement;
 
-            let productoTitulo = productoSeleccionado.querySelector(".producto__titulo").textContent;
-            let productoPrecio = productoSeleccionado.querySelector(".precio").textContent;
-            let productoStock = productoSeleccionado.querySelector(".stock").textContent;
-            let productoImagen = productoSeleccionado.querySelector(".producto__imagen").src;
+            let productoTitulo =
+                productoSeleccionado.querySelector(".producto__titulo").textContent;
+            let productoPrecio =
+                productoSeleccionado.querySelector(".precio").textContent;
+            let productoStock =
+                productoSeleccionado.querySelector(".stock").textContent;
+            let productoImagen =
+                productoSeleccionado.querySelector(".producto__imagen").src;
             let productoCantidad = 1;
 
             let idPadre = padreProducto.getAttribute("id");
@@ -48,7 +49,8 @@ window.onload = function() {
                     productoPrecio,
                     productoStock,
                     productoImagen,
-                    idPadre, productoCantidad
+                    idPadre,
+                    productoCantidad
                 );
                 Swal.fire({
                     position: "center",
@@ -74,10 +76,24 @@ window.onload = function() {
                 });
                 return;
             }
-        };
+        }
 
-        function agregarProductoAlCarrito(titulo, precio, stock, imagen, id, cantidad) {
-            const producto = new Producto(titulo, precio, stock, imagen, id, cantidad);
+        function agregarProductoAlCarrito(
+            titulo,
+            precio,
+            stock,
+            imagen,
+            id,
+            cantidad
+        ) {
+            const producto = new Producto(
+                titulo,
+                precio,
+                stock,
+                imagen,
+                id,
+                cantidad
+            );
 
             carrito.push(producto);
 
@@ -152,8 +168,7 @@ window.onload = function() {
                 producto.cantidad = inputSeleccionado.value;
                 localStorage.setItem("carrito", JSON.stringify(carrito));
             });
-
-        };
+        }
 
         function mostrarProductoEnCarrito() {
             let contenedorProducto = document.createElement("div");
@@ -194,7 +209,7 @@ window.onload = function() {
             $(".offcanvas-body").prepend(contenedorProducto);
 
             calcularTotal();
-        };
+        }
 
         function finalizar() {
             //* BOTONES DEL CARRITO
@@ -227,11 +242,9 @@ window.onload = function() {
                         $("#numero-total").text("0");
                     }
                 });
-
             });
             $("#comprar").click(function() {
                 if (carrito.length > 0) {
-
                     ordenCompra = Math.round(
                         Math.random() * (99999999 - 11111111) + 11111111
                     );
@@ -245,26 +258,28 @@ window.onload = function() {
                         navigator.clipboard.writeText(ordenCompra);
                         const Toast = Swal.mixin({
                             toast: true,
-                            position: 'bottom-end',
+                            position: "bottom-end",
                             showConfirmButton: false,
                             timer: 2500,
                             timerProgressBar: true,
                             didOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
+                                toast.addEventListener("mouseenter", Swal.stopTimer);
+                                toast.addEventListener("mouseleave", Swal.resumeTimer);
+                            },
+                        });
                         Toast.fire({
-                            icon: 'success',
-                            title: `¡Orden de compra copiado! N°${ordenCompra}`
-                        })
+                            icon: "success",
+                            title: `¡Orden de compra copiado! N°${ordenCompra}`,
+                        });
                     });
 
                     //* AGREGANDO SECCIÓN DE PRODUCTOS COMPRADOS
 
                     if (comprasTotales.length < 5) {
                         let compra = [];
-                        let compraLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+                        let compraLocalStorage = JSON.parse(
+                            localStorage.getItem("carrito")
+                        );
                         console.log("🚀 - compraLocalStorage", compraLocalStorage);
 
                         compra.push(ordenCompra);
@@ -282,7 +297,10 @@ window.onload = function() {
 
                         for (let i = 1; i <= comprasTotales.length; i++) {
                             contenedorProductosComprados = document.createElement("div");
-                            contenedorProductosComprados.setAttribute("class", `compra${i} p-4 d-none`);
+                            contenedorProductosComprados.setAttribute(
+                                "class",
+                                `compra${i} p-4 d-none`
+                            );
                             contenedorProductosComprados.setAttribute("id", ordenCompra);
                             $(`.contenedor-compra`).append(contenedorProductosComprados);
                         }
@@ -290,32 +308,40 @@ window.onload = function() {
                         console.log(ordenCompra);
 
                         $(".busqueda").on("input", function() {
-                            if ((contenedorProductosComprados.id).includes(($(".busqueda").val()))) {
+                            if (
+                                contenedorProductosComprados.id.includes($(".busqueda").val())
+                            ) {
                                 contenedorProductosComprados.classList.remove("d-none");
                             } else {
                                 contenedorProductosComprados.classList.add("d-none");
                             }
                         });
 
-
                         //? RENDERIZADO DE PRODUCTOS COMPRADOS
 
                         for (let i = 1; i < compra.length; i++) {
                             let productoComprado = document.createElement("div");
-                            productoComprado.innerHTML =
-                                `<div class="d-flex justify-content-around contenedor-principal-compra">
-                                                        <img class="imagen-producto" src="${compra[i].imagen}">
-                                                        <h3 class="titulo-en-compra text-center">${compra[i].titulo}</h3>
+                            productoComprado.innerHTML = `<div class="d-flex justify-content-around contenedor-principal-compra">
+                                                        <img class="imagen-producto" src="${
+                                                          compra[i].imagen
+                                                        }">
+                                                        <h3 class="titulo-en-compra text-center">${
+                                                          compra[i].titulo
+                                                        }</h3>
                                                         <div class="d-flex flex-column text-center justify-content-center align-content-center">
-                                                            <p class="texto-compra">Unidades compradas: <b class="texto-compra">${compra[i].cantidad}</b></p>
-                                                            <p class="texto-compra2">Total: S/${compra[i].precio * compra[i].cantidad}.00</p>
+                                                            <p class="texto-compra">Unidades compradas: <b class="texto-compra">${
+                                                              compra[i].cantidad
+                                                            }</b></p>
+                                                            <p class="texto-compra2">Total: S/${
+                                                              compra[i].precio *
+                                                              compra[i].cantidad
+                                                            }.00</p>
                                                         </div>
                                                     </div>`;
                             contenedorProductosComprados.appendChild(productoComprado);
                         }
 
                         contador.innerText = comprasTotales.length;
-
                     } else {
                         Swal.fire({
                             position: "center",
@@ -335,7 +361,7 @@ window.onload = function() {
                     $("#numero-total").text("0");
                 }
             });
-        };
+        }
 
         function crearSeccionTotal() {
             contenedorTotal.innerHTML = `
@@ -353,7 +379,7 @@ window.onload = function() {
             carritoContenedor[0].appendChild(contenedorTotal);
 
             finalizar();
-        };
+        }
 
         crearSeccionTotal();
 
@@ -366,7 +392,6 @@ window.onload = function() {
                 totalFinal += parseInt(precioProducto[i].textContent);
             }
             $("#numero-total").text(totalFinal);
-        };
-
+        }
     }
-}
+};
