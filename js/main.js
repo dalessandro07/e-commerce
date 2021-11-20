@@ -80,10 +80,7 @@ const pintarCards = (data) => {
     data.forEach((producto) => {
         cardProducto
             .querySelector(".card")
-            .setAttribute(
-                "class",
-                `card text-center producto col-12 col-md-6 col-lg-3 ${producto.tipo}`
-            );
+            .setAttribute("class", `card text-center producto ${producto.tipo}`);
         cardProducto.querySelector("h5").textContent = producto.nombre;
         cardProducto.querySelector("img").setAttribute("src", producto.imagen);
         cardProducto

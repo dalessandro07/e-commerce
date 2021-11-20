@@ -1037,13 +1037,15 @@ body::-webkit-scrollbar-track {
 .producto__container .producto {
     font-family: 'poppins';
     margin-bottom: 2rem;
-    width: 23.35%;
+    min-width: 22.5%;
+    max-width: 100%;
     margin: 1rem;
     height: 20%;
     padding: 0 !important;
 }
 
 .producto__container .producto .producto__imagen {
+    width: 260px;
     height: 180px;
     -o-object-fit: cover;
     object-fit: cover;
