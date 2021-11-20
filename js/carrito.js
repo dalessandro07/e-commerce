@@ -18,8 +18,8 @@ class Producto {
 
 let contador = document.getElementById("contador-productos");
 
-if (localStorage.getItem("username")) {
-    window.onload = function() {
+window.onload = function() {
+    if (localStorage.getItem("username")) {
         $(".boton-agregar-al-carro").on("click", identificarProducto);
 
         function identificarProducto(e) {
@@ -393,5 +393,5 @@ if (localStorage.getItem("username")) {
             }
             $("#numero-total").text(totalFinal);
         }
-    };
-}
+    }
+};
