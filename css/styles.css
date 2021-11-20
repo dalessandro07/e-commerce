@@ -1045,7 +1045,8 @@ body::-webkit-scrollbar-track {
 }
 
 .producto__container .producto .producto__imagen {
-    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
     height: 180px;
     -o-object-fit: cover;
     object-fit: cover;
