@@ -1037,6 +1037,10 @@ body::-webkit-scrollbar-track {
 .producto__container .producto {
     font-family: 'poppins';
     margin-bottom: 2rem;
+    width: 23.35%;
+    margin: 1rem;
+    height: 20%;
+    padding: 0 !important;
 }
 
 .producto__container .producto .producto__imagen {
@@ -1120,8 +1124,11 @@ body::-webkit-scrollbar-track {
 }
 
 .texto__carrito {
+    font-size: 1.75rem;
     font-family: 'poppins';
-    margin-left: .5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    color: #225239;
 }
 
 .boton-agregar-al-carro {

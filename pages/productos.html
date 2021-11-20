@@ -172,12 +172,41 @@
 
         <!-- inicio seccion de productos -->
 
-        <div class="row producto__container">
+        <div class="row producto__container" id="items">
+
         </div>
 
         <!-- cierre seccion de productos -->
 
     </div>
+
+    <template id="template-card">
+        <div class="card text-center producto col-12 col-md-6 col-lg-3">
+            <img class="producto__imagen card-img-top" alt="" />
+            <div class="card-body producto__inferior">
+                <div class="titulo">
+                    <h5 class="producto__titulo card-title"></h5>
+                </div>
+                <div class="precio__container">
+                    <div class="d-flex"><b class="precio2">S/</b><b class="precio"></b><b class="precio2">.00 la
+                            unidad</b></div>
+                    <button class="producto__enlace boton-agregar-al-carro">
+                        <i class="producto__icon fas fa-cart-plus">
+                        </i>
+                        <b class="texto__carrito">Añadir al carrito</b>
+                    </button>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-center"><b class="stock"></b><b class="stock2">
+                            disponibles</b><br>
+                    </div>
+                    <div class="d-flex justify-content-center"><b class="vendidos"></b><b class="stock2">
+                            vendidos</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <!-- cierre contenido -->
 

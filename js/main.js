@@ -45,140 +45,119 @@ seccionBienvenida.appendChild(contenedor);
 
 //! PRODUCTOS
 
-$.get("../productos.json", function(resultado, estado) {
-    if (estado === "success") {
-        for (const producto of resultado) {
-            let cardProducto = document.createElement("div");
-            cardProducto.setAttribute(
-                "class",
-                `producto col-12 col-md-6 col-lg-3 ${producto.tipo}`
-            );
-            cardProducto.setAttribute("id", `${producto.id}`);
+let cardProducto = document.getElementById("template-card").content;
+let contenedorCards = document.getElementById("items");
+const fragment = document.createDocumentFragment();
 
-            cardProducto.innerHTML = `
-                <div class="card text-center">
-                    <img src="${producto.imagen}" class="producto__imagen card-img-top" alt="${producto.tipo}" />
-                    <div class="card-body producto__inferior">
-                        <div class="titulo">
-                            <h5 class="producto__titulo card-title">${producto.nombre}</h5>
-                        </div>
-                        <div class="precio__container">
-                            <div class="d-flex"><b class="precio2">S/</b><b class="precio">${producto.precio}</b><b class="precio2">.00 la unidad</b></div>
-                            <button class="producto__enlace boton-agregar-al-carro" id="agregar-${producto.id}">
-                            <i class="producto__icon fas fa-cart-plus">
-                            <b class="texto__carrito">Añadir al carrito</b>
-                            </i>
-                            </button>
-                        </div>
-                        <div>
-                            <div class="d-flex justify-content-center"><b class="stock">${producto.stock}</b><b class="stock2"> disponibles</b><br>
-                            </div>
-                            <div class="d-flex justify-content-center"><b class="vendidos">${producto.vendidos}</b><b class="stock2"> vendidos</b>
-                            </div>
-                            </div>
-                    </div>
-                </div>`;
+document.addEventListener("DOMContentLoaded", () => {
+    fetchData();
+});
 
-            listaCards.push(cardProducto);
+const fetchData = async() => {
+    try {
+        const res = await fetch("../productos.json");
+        const data = await res.json();
+        pintarCards(data);
+        filtrarCards(data);
+    } catch (error) {
+        console.log(error);
+    }
+};
 
-            for (const card of listaCards) {
-                contenedorProductos[0].appendChild(card);
-            }
-        }
+contenedorCards.addEventListener("click", (e) => {
+    if (localStorage.getItem("username")) {
+        ejecutarCarrito(e);
+    } else {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
     }
 });
 
+const pintarCards = (data) => {
+    data.forEach((producto) => {
+        cardProducto
+            .querySelector(".card")
+            .setAttribute(
+                "class",
+                `card text-center producto col-12 col-md-6 col-lg-3 ${producto.tipo}`
+            );
+        cardProducto.querySelector("h5").textContent = producto.nombre;
+        cardProducto.querySelector("img").setAttribute("src", producto.imagen);
+        cardProducto
+            .querySelector(".producto__inferior")
+            .setAttribute("id", producto.id);
+        cardProducto.querySelector(".precio").textContent = producto.precio;
+        cardProducto.querySelector(".stock").textContent = producto.stock;
+        cardProducto.querySelector(".vendidos").textContent = producto.vendidos;
+
+        const clone = cardProducto.cloneNode(true);
+        fragment.appendChild(clone);
+    });
+    contenedorCards.appendChild(fragment);
+};
+
 // * FUNCION DARK MODE
 
-$(() => {
-    $("#boton-dark").click(function() {
-        $("#boton-dark").toggleClass("fa-sun");
-        $("body").toggleClass("seccion-oscuro");
-        $("nav").toggleClass("nav-oscuro");
-        $(".cabecera__logo").toggleClass("logo-oscuro");
-        $("h1").toggleClass("texto-oscuro");
-        $(".offcanvas").toggleClass("carrito-oscuro");
-        $(".contenedor-principal-producto").toggleClass("borde-oscuro");
-        $(".fas").toggleClass("texto-oscuro");
-        $(".card").toggleClass("card-oscuro");
-        $("h5").toggleClass("texto-oscuro");
-        $("b").toggleClass("texto-oscuro");
-        $("h2").toggleClass("texto-oscuro");
-        $("h3").toggleClass("texto-oscuro");
-        $("label").toggleClass("texto-oscuro");
-        $("div").toggleClass("texto-oscuro");
-        $(".cantidad-productos:input[value='']").toggleClass("texto-oscuro");
-        $(".btn-close").toggleClass("btn-close-white");
-    });
+$("#boton-dark").click(function() {
+    $("#boton-dark").toggleClass("fa-sun");
+    $("body").toggleClass("seccion-oscuro");
+    $("nav").toggleClass("nav-oscuro");
+    $(".cabecera__logo").toggleClass("logo-oscuro");
+    $("h1").toggleClass("texto-oscuro");
+    $(".offcanvas").toggleClass("carrito-oscuro");
+    $(".contenedor-principal-producto").toggleClass("borde-oscuro");
+    $(".fas").toggleClass("texto-oscuro");
+    $(".card").toggleClass("card-oscuro");
+    $("h5").toggleClass("texto-oscuro");
+    $("b").toggleClass("texto-oscuro");
+    $("h2").toggleClass("texto-oscuro");
+    $("h3").toggleClass("texto-oscuro");
+    $("label").toggleClass("texto-oscuro");
+    $("div").toggleClass("texto-oscuro");
+    $(".cantidad-productos:input[value='']").toggleClass("texto-oscuro");
+    $(".btn-close").toggleClass("btn-close-white");
 });
 
 //* FILTROS (MAS VENDIDOS, MAYOR STOCK, MAYOR PRECIO Y MENOR PRECIO)
 
 //? AGREGO LOS EVENTOS CON JQUERY
 
-$.get("../productos.json", function(resultado, estado) {
-    if (estado === "success") {
-        $("#masVendidos").click(function() {
-            let productosOrdenados = resultado.sort((a, b) => {
-                return b.vendidos - a.vendidos;
-            });
-
-            for (const producto of productosOrdenados) {
-                listaCards.splice(0, listaCards.length);
-                listaCards.push($(`#${producto.id}`));
-
-                for (const card of listaCards) {
-                    $(".producto__container").append(card);
-                }
-            }
+const filtrarCards = (data) => {
+    $("#masVendidos").click(function() {
+        let productosOrdenados = data.sort((a, b) => {
+            return b.vendidos - a.vendidos;
         });
+        $(".card").hide();
+        pintarCards(productosOrdenados);
+    });
 
-        $("#mayorStock").click(function() {
-            let productosOrdenados = resultado.sort((a, b) => {
-                return b.stock - a.stock;
-            });
-
-            for (const producto of productosOrdenados) {
-                listaCards.splice(0, listaCards.length);
-                listaCards.push($(`#${producto.id}`));
-
-                for (const card of listaCards) {
-                    $(".producto__container").append(card);
-                }
-            }
+    $("#mayorStock").click(function() {
+        let productosOrdenados = data.sort((a, b) => {
+            return b.stock - a.stock;
         });
+        $(".card").hide();
+        pintarCards(productosOrdenados);
+    });
 
-        $("#mayorPrecio").click(function() {
-            let productosOrdenados = resultado.sort((a, b) => {
-                return b.precio - a.precio;
-            });
-
-            for (const producto of productosOrdenados) {
-                listaCards.splice(0, listaCards.length);
-                listaCards.push($(`#${producto.id}`));
-
-                for (const card of listaCards) {
-                    $(".producto__container").append(card);
-                }
-            }
+    $("#mayorPrecio").click(function() {
+        let productosOrdenados = data.sort((a, b) => {
+            return b.precio - a.precio;
         });
+        $(".card").hide();
+        pintarCards(productosOrdenados);
+    });
 
-        $("#menorPrecio").click(function() {
-            let productosOrdenados = resultado.sort((a, b) => {
-                return a.precio - b.precio;
-            });
-
-            for (const producto of productosOrdenados) {
-                listaCards.splice(0, listaCards.length);
-                listaCards.push($(`#${producto.id}`));
-
-                for (const card of listaCards) {
-                    $(".producto__container").append(card);
-                }
-            }
+    $("#menorPrecio").click(function() {
+        let productosOrdenados = data.sort((a, b) => {
+            return a.precio - b.precio;
         });
-    }
-});
+        $(".card").hide();
+        pintarCards(productosOrdenados);
+    });
+};
 
 //* AGREGUÉ FUNCIONALIDAD EN FILTROS POR SECCIONES (PLANTAS, MACETAS Y TIERRAS)
 

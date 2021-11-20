@@ -22,7 +22,9 @@ let textos = document.getElementsByTagName("b");
 let listaCards = [];
 
 let cards = document.getElementsByClassName("card");
-let contenedorProductos = document.getElementsByClassName("producto__container");
+let contenedorProductos = document.getElementsByClassName(
+    "producto__container"
+);
 let productoHTML = document.getElementsByClassName("producto");
 let contenedorPrecio = document.getElementsByClassName("precio__container");
 let contenedorPrincipal = document.getElementById("contenedor-principal");
@@ -53,7 +55,6 @@ let password = document.getElementById("password");
 let botonRegistrar = document.getElementById("boton-registrar");
 let botonIniciarSesion = document.getElementById("boton-iniciar-sesion");
 let botonEntrar = document.getElementById("boton-entrar");
-
 
 //? USUARIO O CONTRASEÑA INCORRECTO - ERROR
 
