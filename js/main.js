@@ -228,8 +228,13 @@ class Usuario {
 
         $("#cambio-pass").on("input", function() {
             let nuevaPass = $("#cambio-pass").val();
-            $("#cambiar-password").one('click', function() {
-                if ((nuevaPass.length > 5) && (nuevaPass !== $("#cambio-user").val()) && (!nuevaPass.includes(" ")) && (!nuevaPass.match(caracteresEspeciales))) {
+            $("#cambiar-password").one("click", function() {
+                if (
+                    nuevaPass.length > 5 &&
+                    nuevaPass !== $("#cambio-user").val() &&
+                    !nuevaPass.includes(" ") &&
+                    !nuevaPass.match(caracteresEspeciales)
+                ) {
                     localStorage.setItem("password", nuevaPass);
                     $("#error-password").addClass("d-none");
                     $("#correcto-password").removeClass("d-none");
@@ -260,12 +265,12 @@ class Usuario {
                 localStorage.removeItem("password");
                 localStorage.removeItem("username");
                 Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: '¡Tu cuenta fue borrada con éxito!',
+                    position: "center",
+                    icon: "success",
+                    title: "¡Tu cuenta fue borrada con éxito!",
                     showConfirmButton: false,
-                    timer: 1500
-                })
+                    timer: 1500,
+                });
 
                 $("#cambio-user").val("");
                 $("#cambio-pass").val("");
@@ -275,7 +280,7 @@ class Usuario {
                 $(".titulo__fecha").remove();
                 sinUsuario();
                 setTimeout(function() {
-                    window.location.href = "../index.html"
+                    window.location.href = "../index.html";
                 }, 1500);
             }
         });
