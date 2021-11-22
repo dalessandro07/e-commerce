@@ -2303,6 +2303,10 @@ body .cabecera .nav__lista {
     color: #ffffff !important;
 }
 
+.texto-claro {
+    color: #225239 !important;
+}
+
 .borde-oscuro {
     border-top: .5px solid #ffffff !important;
     border-bottom: .5px solid #ffffff !important;
